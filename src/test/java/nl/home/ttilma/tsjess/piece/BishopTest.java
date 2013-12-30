@@ -14,6 +14,11 @@ import nl.home.ttilma.tsjess.piece.Bishop;
 
 import org.junit.Test;
 
+/**
+ * 
+ * @author Tsjisse Tilma
+ *
+ */
 public class BishopTest {
     @Test
     public void testMoveGen() {

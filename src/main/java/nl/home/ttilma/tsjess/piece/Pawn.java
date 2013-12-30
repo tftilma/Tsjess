@@ -6,11 +6,15 @@ import nl.home.ttilma.game.board.Color;
 import nl.home.ttilma.game.board.Move;
 import nl.home.ttilma.game.board.MoveResult;
 import nl.home.ttilma.game.board.Position;
-import nl.home.ttilma.game.piece.AbstractPiece;
 import nl.home.ttilma.game.piece.Piece;
 import nl.home.ttilma.tsjess.board.ChessBoard;
 
-public class Pawn extends AbstractPiece<ChessBoard> implements Piece<ChessBoard> {
+/**
+ * 
+ * @author Tsjisse Tilma
+ *
+ */
+public class Pawn extends AbstractChessPiece {
     public Pawn(Color color) {
         super(color);
     }
@@ -111,7 +115,7 @@ public class Pawn extends AbstractPiece<ChessBoard> implements Piece<ChessBoard>
                     createPromotion(board, moveList, toPos, new Bishop(Color.WHITE), true);
                 } else {
                     Move m = createMove(board, deltaX, +1);
-                    m.setCapturing(true); // board.getField(getPosition().getCol() + deltaX, getPosition().getRow() + 1).getPiece());
+                    m.setCapturing(true);
                     moveList.add(m);
                 }
             }
@@ -125,7 +129,7 @@ public class Pawn extends AbstractPiece<ChessBoard> implements Piece<ChessBoard>
                     createPromotion(board, moveList, toPos, new Bishop(Color.BLACK), true);
                 } else {
                     Move m = createMove(board, deltaX, -1);
-                    m.setCapturing(true); // m.setPiece(board.getField(getPosition().getCol() + deltaX, getPosition().getRow() - 1).getPiece());
+                    m.setCapturing(true); 
                     moveList.add(m);
                 }
             }

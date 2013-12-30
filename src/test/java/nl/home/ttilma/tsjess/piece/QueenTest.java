@@ -14,6 +14,11 @@ import nl.home.ttilma.tsjess.board.ChessPieceIdx;
 import nl.home.ttilma.tsjess.piece.Queen;
 
 
+/**
+ * 
+ * @author Tsjisse Tilma
+ *
+ */
 public class QueenTest {
     @Test
     public void testPrintWhite() {

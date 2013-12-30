@@ -3,6 +3,11 @@ package nl.home.ttilma.tsjess.board;
 import nl.home.ttilma.game.board.Position;
 import nl.home.ttilma.game.piece.Piece;
 
+/**
+ * 
+ * @author Tsjisse Tilma
+ *
+ */
 public enum ChessPieceIdx {
     WQR(0), WQN(1), WQB(2), WQQ(3), WKK(4), WKB(5), WKN(6), WKR(7), 
     WAX(8), WBX(9), WCX(10), WDX(11), WEX(12), WFX(13), WGX(14), WHX(15), 

@@ -13,7 +13,11 @@ import nl.home.ttilma.tsjess.board.ChessBoard;
 import nl.home.ttilma.tsjess.board.ChessPieceIdx;
 import nl.home.ttilma.tsjess.piece.Rook;
 
-
+/**
+ * 
+ * @author Tsjisse Tilma
+ *
+ */
 public class RookTest {
     @Test
     public void testPrintWhite() {

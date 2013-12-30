@@ -13,7 +13,11 @@ import nl.home.ttilma.tsjess.board.ChessBoard;
 import nl.home.ttilma.tsjess.board.ChessPieceIdx;
 import nl.home.ttilma.tsjess.piece.Knight;
 
-
+/**
+ * 
+ * @author Tsjisse Tilma
+ *
+ */
 public class KnightTest {
     @Test
     public void testPrintWhite() {
