@@ -6,5 +6,5 @@ package nl.home.ttilma.tsjess;
  *
  */
 public class TsjessCvC {
-
+    int i;
 }
