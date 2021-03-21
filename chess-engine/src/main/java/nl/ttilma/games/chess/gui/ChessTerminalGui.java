@@ -30,7 +30,7 @@ public class ChessTerminalGui implements ChessGui {
     }
 
     public void askMove() {
-        System.out.println("You turn >");
+        System.out.println("Your turn >");
     }
 
     public void thinkMove() {
@@ -42,4 +42,7 @@ public class ChessTerminalGui implements ChessGui {
         System.out.println("Game ended result =");
     }
 
+    public void showBoard() {
+        System.out.println("Show board");
+    }
 }
