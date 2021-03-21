@@ -2,13 +2,13 @@ package nl.ttilma.games.chess.engine;
 
 import nl.ttilma.games.engine.Game;
 import nl.ttilma.games.engine.TimedGame;
-import nl.ttilma.games.chess.gui.ChessGui;
+import nl.ttilma.games.chess.gui.TsjessGui;
 
 public class TsjessGame extends TimedGame implements Game {
-    private final ChessGui gui;
+    private final TsjessGui gui;
     private final TsjessEngine engine;
 
-    public TsjessGame(final ChessGui gui, final TsjessEngine engine) {
+    public TsjessGame(final TsjessGui gui, final TsjessEngine engine) {
        this.gui = gui;
         this.engine = engine;
     }

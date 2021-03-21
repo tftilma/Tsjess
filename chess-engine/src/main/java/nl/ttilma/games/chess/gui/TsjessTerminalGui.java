@@ -1,7 +1,7 @@
 package nl.ttilma.games.chess.gui;
 
-public class ChessTerminalGui implements ChessGui {
-    public ChessTerminalGui() {
+public class TsjessTerminalGui implements TsjessGui {
+    public TsjessTerminalGui() {
 
     }
 

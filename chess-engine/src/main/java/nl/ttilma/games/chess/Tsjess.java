@@ -2,10 +2,10 @@ package nl.ttilma.games.chess;
 
 import nl.ttilma.games.chess.engine.TsjessEngine;
 import nl.ttilma.games.chess.engine.TsjessGame;
-import nl.ttilma.games.chess.gui.ChessTerminalGui;
+import nl.ttilma.games.chess.gui.TsjessTerminalGui;
 
 public class Tsjess {
-    private final TsjessGame game = new TsjessGame(new ChessTerminalGui(), new TsjessEngine());
+    private final TsjessGame game = new TsjessGame(new TsjessTerminalGui(), new TsjessEngine());
 
     public static void main(String[] args) {
         System.out.println("WELCOME TO TSJESS");

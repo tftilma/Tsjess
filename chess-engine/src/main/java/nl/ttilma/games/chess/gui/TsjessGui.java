@@ -1,6 +1,6 @@
 package nl.ttilma.games.chess.gui;
 
-public interface ChessGui {
+public interface TsjessGui {
     void askMove();
     void thinkMove();
 
