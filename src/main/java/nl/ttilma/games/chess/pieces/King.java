@@ -7,5 +7,4 @@ public class King extends ChessPiece {
     public King(final ChessBoard chessBoard, final ChessPieceId id) {
         super(chessBoard, id, new KingBehavior(chessBoard, id));
     }
-
 }

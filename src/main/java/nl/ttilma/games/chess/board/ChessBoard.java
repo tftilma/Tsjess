@@ -1,12 +1,12 @@
 package nl.ttilma.games.chess.board;
 
-import com.sun.istack.internal.NotNull;
 import nl.ttilma.games.chess.pieces.*;
-
 import static nl.ttilma.games.chess.pieces.ChessPieceId.*;
 
+import java.lang.annotation.Target;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 
 public class ChessBoard {
     private final ChessPiece pieces[];
@@ -79,9 +79,10 @@ public class ChessBoard {
         } else {
             return generateMoves(16, 31);
         }
+
     }
 
-    private  List<Move> generateMoves(@NotNull final int startPieceIdx, final int endPieceIdx) {
+    private  List<Move> generateMoves(final int startPieceIdx, final int endPieceIdx) {
         List<Move> moveList = new ArrayList<>();
         for (int pieceIdxdx=startPieceIdx; pieceIdxdx <= endPieceIdx; pieceIdxdx++) {
             ChessPiece chessPiece = pieces[pieceIdxdx];
@@ -90,15 +91,20 @@ public class ChessBoard {
         return moveList;
     }
 
-    public Position getPosByPieceId(@NotNull final ChessPieceId id) {
+    @SafeVarargs
+    public static void myVars(int... x) {
+
+    }
+
+    public Position getPosByPieceId( final ChessPieceId id) {
         return getPieceById(id).getPos();
     }
 
-    public ChessPiece getPieceById(@NotNull final ChessPieceId id) {
+    public ChessPiece getPieceById(final ChessPieceId id) {
         return pieces[id.ordinal()];
     }
 
-    public ChessPiece getPieceByPos(@NotNull final Position pos) {
+    public ChessPiece getPieceByPos(final Position pos) {
         return fields[pos.getCol()][pos.getRow()].getPiece();
     }
 
