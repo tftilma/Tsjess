@@ -1,4 +1,4 @@
-package nl.ttilma.games.chess.engine.board;
+package nl.ttilma.games.chess.dom.board;
 
 public class Position {
     public static final Position A1 = new Position(0, 0);

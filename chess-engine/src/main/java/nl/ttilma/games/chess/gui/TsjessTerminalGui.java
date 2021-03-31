@@ -1,13 +1,19 @@
 package nl.ttilma.games.chess.gui;
 
+import java.io.Console;
+
 public class TsjessTerminalGui implements TsjessGui {
+    private Console console = System.console();
+
     public TsjessTerminalGui() {
 
     }
 
     public void askWhitePlayer() {
         System.out.println("White player (H for Human or AI for Computer)> ");
+        String line = console.readLine();
     }
+
 
     @Override
     public void askBlackPlayer() {

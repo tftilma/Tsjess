@@ -1,7 +1,7 @@
 package nl.ttilma.games.chess.engine.piece;
 
 import nl.ttilma.games.chess.engine.behavior.RookBehavior;
-import nl.ttilma.games.chess.engine.board.ChessBoard;
+import nl.ttilma.games.chess.dom.board.ChessBoard;
 
 public class Rook extends ChessPiece {
     public Rook(final ChessBoard chessBoard, final ChessPieceId id) {

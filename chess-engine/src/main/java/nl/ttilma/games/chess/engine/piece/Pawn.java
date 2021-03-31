@@ -2,9 +2,7 @@ package nl.ttilma.games.chess.engine.piece;
 
 import nl.ttilma.games.chess.engine.behavior.ChessBehavior;
 import nl.ttilma.games.chess.engine.behavior.PawnBehavior;
-import nl.ttilma.games.chess.engine.board.ChessBoard;
-import nl.ttilma.games.chess.engine.piece.AlreadyPromotedException;
-import nl.ttilma.games.chess.engine.piece.NotYetPromotedException;
+import nl.ttilma.games.chess.dom.board.ChessBoard;
 
 public class Pawn extends AbstractChessPiece {
 
