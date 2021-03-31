@@ -1,4 +1,4 @@
-package nl.ttilma.games.chess.engine.board;
+package nl.ttilma.games.chess.dom.board;
 
 import nl.ttilma.games.chess.engine.piece.ChessPiece;
 

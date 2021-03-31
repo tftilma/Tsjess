@@ -1,7 +1,7 @@
 package nl.ttilma.games.chess.engine.behavior;
 
-import nl.ttilma.games.chess.engine.board.ChessBoard;
-import nl.ttilma.games.chess.engine.move.Move;
+import nl.ttilma.games.chess.dom.board.ChessBoard;
+import nl.ttilma.games.chess.dom.game.Move;
 import nl.ttilma.games.chess.engine.piece.ChessPieceId;
 
 import java.util.ArrayList;

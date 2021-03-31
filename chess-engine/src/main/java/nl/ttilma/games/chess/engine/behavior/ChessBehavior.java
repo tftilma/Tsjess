@@ -1,9 +1,9 @@
 package nl.ttilma.games.chess.engine.behavior;
 
-import nl.ttilma.games.chess.engine.board.ChessBoard;
+import nl.ttilma.games.chess.dom.board.ChessBoard;
 import nl.ttilma.games.chess.engine.piece.Color;
-import nl.ttilma.games.chess.engine.move.Move;
-import nl.ttilma.games.chess.engine.board.Position;
+import nl.ttilma.games.chess.dom.game.Move;
+import nl.ttilma.games.chess.dom.board.Position;
 import nl.ttilma.games.chess.engine.piece.ChessPiece;
 import nl.ttilma.games.chess.engine.piece.ChessPieceId;
 

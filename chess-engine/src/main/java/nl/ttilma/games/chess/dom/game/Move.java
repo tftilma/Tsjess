@@ -1,7 +1,7 @@
-package nl.ttilma.games.chess.engine.move;
+package nl.ttilma.games.chess.dom.game;
 
 import nl.ttilma.games.chess.engine.behavior.ChessBehavior;
-import nl.ttilma.games.chess.engine.board.Position;
+import nl.ttilma.games.chess.dom.board.Position;
 import nl.ttilma.games.chess.engine.piece.ChessPiece;
 
 public class Move {

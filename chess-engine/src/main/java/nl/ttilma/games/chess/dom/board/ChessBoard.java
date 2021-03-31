@@ -1,6 +1,6 @@
-package nl.ttilma.games.chess.engine.board;
+package nl.ttilma.games.chess.dom.board;
 
-import nl.ttilma.games.chess.engine.move.Move;
+import nl.ttilma.games.chess.dom.game.Move;
 import nl.ttilma.games.chess.engine.piece.*;
 
 import java.util.ArrayList;
