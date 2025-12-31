@@ -5,8 +5,6 @@ import nl.home.ttilma.game.engine.GameEngine;
 import nl.home.ttilma.tsjess.engine.TsjessGameEngine;
 import nl.home.ttilma.tsjess.gui.ConsoleTsjessGui;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 /**
  * 
@@ -14,15 +12,12 @@ import org.apache.log4j.Logger;
  *
  */
 public class TsjessPvP {
-    private static Logger logger = LogManager.getLogger(TsjessPvP.class);
     private ConsoleTsjessGui gui = new ConsoleTsjessGui();
     private GameEngine engine = new TsjessGameEngine();
     
     public static void main(String[] args) {
-        logger.info("TsjessPvP (c) by Tsjisse Tilma");
         TsjessPvP tsjess = new TsjessPvP();
         tsjess.playGame();
-        logger.info("Game over!");
     }
   
     private void playGame() {
