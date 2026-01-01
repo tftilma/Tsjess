@@ -99,7 +99,7 @@ class KnightBehaviour extends Behaviour {
     private void tryLeftBackBack(List<Move> list) {
         tryDeltaOne(list, (b, f) -> {
             Field toField;
-            if (f.getCol() >= 1 && f.getRow() <= 2) {
+            if (f.getCol() >= 1 && f.getRow() >= 2) {
                 toField = b.getField(f.getCol() - 1, f.getRow() - 2);
             } else {
                 toField = null;
