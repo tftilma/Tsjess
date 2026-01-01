@@ -24,7 +24,7 @@ class RookBehaviour extends Behaviour {
     private void tryRight(List<Move> list) {
         tryDeltaMany(list, (b, f) -> {
             Field toField;
-            if (f.getCol() < 7) {
+            if (f.getCol() <= 6) {
                 toField = b.getField(f.getCol() + 1, f.getRow());
             } else {
                 toField = null;
@@ -36,7 +36,7 @@ class RookBehaviour extends Behaviour {
     private void tryLeft(List<Move> list) {
         tryDeltaMany(list, (b, f) -> {
             final Field toField;
-            if (f.getCol() > 0) {
+            if (f.getCol() >= 1) {
                 toField = b.getField(f.getCol() - 1, f.getRow());
             } else {
                 toField = null;
@@ -48,7 +48,7 @@ class RookBehaviour extends Behaviour {
     private void tryForward(List<Move> list) {
         tryDeltaMany(list, (b, f) -> {
             final Field toField;
-            if (f.getRow() < 7) {
+            if (f.getRow() <= 6) {
                 toField = b.getField(f.getCol(), f.getRow() + 1);
             } else {
                 toField = null;
@@ -61,7 +61,7 @@ class RookBehaviour extends Behaviour {
     private void tryBackwards(List<Move> list) {
         tryDeltaMany(list, (b, f) -> {
             final Field toField;
-            if (f.getRow() > 0) {
+            if (f.getRow() >= 1) {
                 toField = b.getField(f.getCol(), f.getRow() - 1);
             } else {
                 toField = null;
