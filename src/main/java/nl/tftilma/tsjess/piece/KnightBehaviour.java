@@ -14,20 +14,26 @@ class KnightBehaviour extends Behaviour {
 
     List<Move> generate(final Move prevMove) {
         List<Move> list = new ArrayList<>();
-        tryLeftForwardForward(list);
-        tryRightForwardForward(list);
-        tryLeftLeftForward(list);
-        tryRightRightForward(list);
+        final Field field = getChessPiece().getField();
+        if (field == null) {
+            // this piece is not yet placed on the board!
+            return list;
+        }
 
-        tryLeftLeftBack(list);
-        tryRightRightBack(list);
-        tryLeftBackBack(list);
-        tryRightBackBack(list);
+        tryLeftUpUp(list);
+        tryRightUpUp(list);
+        tryLeftLeftUp(list);
+        tryRightRightUp(list);
+
+        tryLeftLeftDown(list);
+        tryRightRightDown(list);
+        tryLeftDownDown(list);
+        tryRightDownDown(list);
         return list;
     }
 
-    private void tryLeftForwardForward(List<Move> list) {
-        tryDeltaOne(list, (b, f) -> {
+    private void tryLeftUpUp(List<Move> list) {
+        tryDelta(list, false, (b, f) -> {
             Field toField;
             if (f.getCol() >= 1 && f.getRow() <= 5) {
                 toField = b.getField(f.getCol() - 1, f.getRow() + 2);
@@ -37,8 +43,9 @@ class KnightBehaviour extends Behaviour {
             return toField;
         });
     }
-    private void tryRightForwardForward(List<Move> list) {
-        tryDeltaOne(list, (b, f) -> {
+
+    private void tryRightUpUp(List<Move> list) {
+        tryDelta(list, false, (b, f) -> {
             Field toField;
             if (f.getCol() <= 6 && f.getRow() <= 5) {
                 toField = b.getField(f.getCol() + 1, f.getRow() + 2);
@@ -48,8 +55,9 @@ class KnightBehaviour extends Behaviour {
             return toField;
         });
     }
-    private void tryLeftLeftForward(List<Move> list) {
-        tryDeltaOne(list, (b, f) -> {
+
+    private void tryLeftLeftUp(List<Move> list) {
+        tryDelta(list, false, (b, f) -> {
             Field toField;
             if (f.getCol() >= 2 && f.getRow() <= 6) {
                 toField = b.getField(f.getCol() - 2, f.getRow() + 1);
@@ -60,8 +68,8 @@ class KnightBehaviour extends Behaviour {
         });
     }
 
-    private void tryRightRightForward(List<Move> list) {
-        tryDeltaOne(list, (b, f) -> {
+    private void tryRightRightUp(List<Move> list) {
+        tryDelta(list, false, (b, f) -> {
             Field toField;
             if (f.getCol() <= 5 && f.getRow() <= 6) {
                 toField = b.getField(f.getCol() + 2, f.getRow() + 1);
@@ -72,8 +80,8 @@ class KnightBehaviour extends Behaviour {
         });
     }
 
-    private void tryLeftLeftBack(List<Move> list) {
-        tryDeltaOne(list, (b, f) -> {
+    private void tryLeftLeftDown(List<Move> list) {
+        tryDelta(list, false, (b, f) -> {
             Field toField;
             if (f.getCol() >= 2 && f.getRow() >= 1) {
                 toField = b.getField(f.getCol() - 2, f.getRow() - 1);
@@ -84,8 +92,8 @@ class KnightBehaviour extends Behaviour {
         });
     }
 
-    private void tryRightRightBack(List<Move> list) {
-        tryDeltaOne(list, (b, f) -> {
+    private void tryRightRightDown(List<Move> list) {
+        tryDelta(list, false, (b, f) -> {
             Field toField;
             if (f.getCol() <= 5 && f.getRow() >= 1) {
                 toField = b.getField(f.getCol() + 2, f.getRow() - 1);
@@ -96,8 +104,8 @@ class KnightBehaviour extends Behaviour {
         });
     }
 
-    private void tryLeftBackBack(List<Move> list) {
-        tryDeltaOne(list, (b, f) -> {
+    private void tryLeftDownDown(List<Move> list) {
+        tryDelta(list, false, (b, f) -> {
             Field toField;
             if (f.getCol() >= 1 && f.getRow() >= 2) {
                 toField = b.getField(f.getCol() - 1, f.getRow() - 2);
@@ -108,8 +116,8 @@ class KnightBehaviour extends Behaviour {
         });
     }
 
-    private void tryRightBackBack(List<Move> list) {
-        tryDeltaOne(list, (b, f) -> {
+    private void tryRightDownDown(List<Move> list) {
+        tryDelta(list, false, (b, f) -> {
             Field toField;
             if (f.getCol() <= 6 && f.getRow() >= 2) {
                 toField = b.getField(f.getCol() + 1, f.getRow() - 2);

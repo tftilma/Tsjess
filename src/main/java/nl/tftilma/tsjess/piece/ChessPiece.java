@@ -38,6 +38,16 @@ public abstract class ChessPiece implements Piece {
         return color;
     }
 
+    public boolean isWhite() {
+        return color == Color.WHITE;
+    }
+
+    public boolean isBlack() {
+        return color == Color.BLACK;
+    }
+
+
+
     public int getIdx() {
         return idx;
     }
