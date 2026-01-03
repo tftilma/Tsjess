@@ -3,31 +3,31 @@ package nl.tftilma.tsjess;
 import nl.tftilma.game.board.Field;
 import nl.tftilma.game.board.Piece;
 import nl.tftilma.tsjess.piece.Behaviour;
-import nl.tftilma.tsjess.piece.PieceIndex;
 
 public class Move {
     private final Field from;
     private final Field to;
-    private Piece captured;
+    private final Piece captured;
     private Behaviour promotionBehaviour;
-
-    public Move(final int fromCol, final int fromRow, final int toCol, final int toRow) {
-        this(new Field(fromCol, fromRow), new Field(toCol, toRow));
-    }
-
-    public Move(final int fromCol, final int fromRow, final int toCol, final int toRow, final Piece captured) {
-        this(new Field(fromCol, fromRow), new Field(toCol, toRow), captured);
-    }
 
     public Move(final Field from, final Field to) {
         this.from = from;
         this.to = to;
-        this.captured = null;
+        this.captured = to.getPiece();
+        this.promotionBehaviour = null;
+    }
+
+    public Move(final Field from, final Field to, final Behaviour promotionBehaviour) {
+        this.from = from;
+        this.to = to;
+        this.captured = to.getPiece();
+        this.promotionBehaviour = promotionBehaviour;
     }
 
     public Move(final Field from, final Field to, final Piece captured) {
-        this(from, to);
-        this.captured = captured;
+        this.from = from;
+        this.to = to;
+        this.captured = captured; // because en-passent
     }
 
     public Field getFrom() {
@@ -44,9 +44,5 @@ public class Move {
 
     public Behaviour getPromotionBehaviour() {
         return promotionBehaviour;
-    }
-
-    public void setPromotionBehaviour(final Behaviour promotionBehaviour) {
-        this.promotionBehaviour = promotionBehaviour;
     }
 }

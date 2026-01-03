@@ -130,7 +130,7 @@ public abstract class Behaviour {
                 stop = true;
                 if (foundPiece.getColor() != chessPiece.getColor()) {
                     // capture
-                    list.add(new Move(field, toField, foundPiece));
+                    list.add(new Move(field, toField));
                 }
             }
             if (!many) {

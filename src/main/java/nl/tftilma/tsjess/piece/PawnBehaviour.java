@@ -35,11 +35,14 @@ public class PawnBehaviour extends Behaviour {
         final Field fromField = getChessPiece().getField();
         ChessBoard board = getChessPiece().getBoard();
         final int pawnDeltaRow = getChessPiece().isWhite() ? 1 : -1;
-        Field toField = board.getField(fromField.getCol() - 1, fromField.getRow() + pawnDeltaRow);
-        createCaptureMove(list, fromField, toField);
-
-        toField = board.getField(fromField.getCol() + 1, fromField.getRow() + pawnDeltaRow);
-        createCaptureMove(list, fromField, toField);
+        if (fromField.getCol() > 0 ) {
+            Field toField = board.getField(fromField.getCol() - 1, fromField.getRow() + pawnDeltaRow);
+            createCaptureMove(list, fromField, toField);
+        }
+        if (fromField.getCol() < 7 ) {
+            Field toField = board.getField(fromField.getCol() + 1, fromField.getRow() + pawnDeltaRow);
+            createCaptureMove(list, fromField, toField);
+        }
     }
 
     private boolean isCapture(Field fromField, Field toField) {
@@ -53,7 +56,7 @@ public class PawnBehaviour extends Behaviour {
             if (toField.getRow() == promoRow) {
                 promote(list, toField);
             } else {
-                list.add(new Move(fromField, toField, toField.getPiece()));
+                list.add(new Move(fromField, toField));
             }
         }
     }
@@ -109,27 +112,19 @@ public class PawnBehaviour extends Behaviour {
     }
 
     private Move promoteBishop(final Field field, final Field toField) {
-        Move move = new Move(field, toField);
-        move.setPromotionBehaviour(new BishopBehaviour(getChessPiece()));
-        return move;
+        return new Move(field, toField, new BishopBehaviour(getChessPiece()));
     }
 
     private Move promoteKnight(final Field field, final Field toField) {
-        Move move = new Move(field, toField);
-        move.setPromotionBehaviour(new KnightBehaviour(getChessPiece()));
-        return move;
+        return new Move(field, toField, new KnightBehaviour(getChessPiece()));
     }
 
     private Move promoteRook(final Field field, final Field toField) {
-        Move move = new Move(field, toField);
-        move.setPromotionBehaviour(new RookBehaviour(getChessPiece()));
-        return move;
+        return new Move(field, toField, new RookBehaviour(getChessPiece()));
     }
 
     private Move promoteQueen(final Field field, final Field toField) {
-        Move move = new Move(field, toField);
-        move.setPromotionBehaviour(new QueenBehaviour(getChessPiece()));
-        return move;
+        return new Move(field, toField, new QueenBehaviour(getChessPiece()));
     }
 
     private void tryEnPassent(List<Move> list, Move prevMove) {
