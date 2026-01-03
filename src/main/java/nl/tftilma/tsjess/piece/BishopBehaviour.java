@@ -18,7 +18,10 @@ class BishopBehaviour extends Behaviour {
             // this piece is not yet placed on the board!
             return list;
         }
-        tryBishop(list);
+        tryLeftUp(list, true);
+        tryRightUp(list, true);
+        tryLeftDown(list, true);
+        tryRightDown(list, true);
 
         return list;
     }

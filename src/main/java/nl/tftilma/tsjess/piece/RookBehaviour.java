@@ -20,7 +20,10 @@ class RookBehaviour extends Behaviour {
             return list;
         }
 
-        tryRook(list);
+        tryLeft(list, true);
+        tryRight(list, true);
+        tryUp(list, true);
+        tryDown(list, true);
         return list;
     }
 }

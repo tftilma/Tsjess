@@ -20,8 +20,15 @@ class QueenBehaviour extends Behaviour {
             return list;
         }
 
-        tryRook(list);
-        tryBishop(list);
+        tryLeft(list, true);
+        tryRight(list, true);
+        tryUp(list, true);
+        tryDown(list, true);
+
+        tryLeftUp(list, true);
+        tryRightUp(list, true);
+        tryLeftDown(list, true);
+        tryRightDown(list, true);
         return list;
     }
 

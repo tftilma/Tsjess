@@ -21,20 +21,6 @@ public abstract class Behaviour {
         return chessPiece;
     }
 
-    protected void tryRook(List<Move> list) {
-        tryLeft(list, true);
-        tryRight(list, true);
-        tryUp(list, true);
-        tryDown(list, true);
-    }
-
-    protected void tryBishop(List<Move> list) {
-        tryLeftUp(list, true);
-        tryRightUp(list, true);
-        tryLeftDown(list, true);
-        tryRightDown(list, true);
-    }
-
     protected void tryRight(List<Move> list, boolean many) {
         tryDelta(list, many, (b, f) -> {
             Field toField;
@@ -133,10 +119,6 @@ public abstract class Behaviour {
 
     protected void tryDelta(List<Move> list, boolean many, BiFunction<ChessBoard, Field, Field> func) {
         final Field field = chessPiece.getField();
-        if (field== null) {
-            // this piece is not yet placed on the board!
-            return;
-        }
         ChessBoard board = chessPiece.getBoard();
         boolean stop = false;
         Field toField = func.apply(board, field);
