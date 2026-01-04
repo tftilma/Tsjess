@@ -1,4 +1,4 @@
-package nl.tftilma.tftilma.game.board;
+package nl.tftilma.game.board;
 
 import nl.tftilma.game.board.AbstractBoard;
 import org.junit.jupiter.api.Test;

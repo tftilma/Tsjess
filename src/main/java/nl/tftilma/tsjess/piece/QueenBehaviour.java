@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class QueenBehaviour extends Behaviour {
+public class QueenBehaviour extends Behaviour {
     QueenBehaviour(final ChessPiece queen) {
         super(queen);
     }

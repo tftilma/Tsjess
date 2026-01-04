@@ -1,4 +1,4 @@
-package nl.tftilma.tftilma.tsjess.piece;
+package nl.tftilma.tsjess.piece;
 
 import nl.tftilma.game.board.Piece;
 import nl.tftilma.tsjess.Move;

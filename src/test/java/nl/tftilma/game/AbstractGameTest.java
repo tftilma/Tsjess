@@ -1,4 +1,4 @@
-package nl.tftilma.tftilma.game;
+package nl.tftilma.game;
 
 public class AbstractGameTest {
 }

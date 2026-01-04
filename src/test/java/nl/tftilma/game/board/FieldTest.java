@@ -1,4 +1,4 @@
-package nl.tftilma.tftilma.game.board;
+package nl.tftilma.game.board;
 
 import nl.tftilma.game.board.Field;
 import nl.tftilma.tsjess.board.Color;
