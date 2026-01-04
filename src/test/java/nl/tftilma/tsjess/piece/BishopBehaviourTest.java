@@ -4,8 +4,7 @@ import nl.tftilma.game.board.Piece;
 import nl.tftilma.tsjess.Move;
 import nl.tftilma.tsjess.board.ChessBoard;
 import nl.tftilma.tsjess.board.Color;
-import nl.tftilma.tsjess.piece.Bishop;
-import nl.tftilma.tsjess.piece.Pawn;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

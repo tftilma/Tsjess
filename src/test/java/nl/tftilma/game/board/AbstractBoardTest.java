@@ -1,6 +1,5 @@
 package nl.tftilma.game.board;
 
-import nl.tftilma.game.board.AbstractBoard;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,7 +11,7 @@ class AbstractBoardTest {
         protected TestBoard(int numCols, int numRows) {
             super(numCols, numRows);
         }
-    };
+    }
 
     @Test
     void basicBoardTest() {
