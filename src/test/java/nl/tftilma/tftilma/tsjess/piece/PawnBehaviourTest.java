@@ -80,6 +80,30 @@ public class PawnBehaviourTest {
 
     @Test
     void testMoveTwoForward() {
+        ChessPiece aPawn = (ChessPiece) board.findPiece(Color.WHITE, AP.ordinal());
+        assertNotNull(aPawn);
+        assertInstanceOf(Pawn.class, aPawn);
+        board.setPiece(0, 1, aPawn);
+        List<Move> moveList = aPawn.generate(null);
+        assertNotNull(moveList);
+        assertFalse(moveList.isEmpty());
+        assertEquals(2, moveList.size());
+
+        Move move0 = moveList.getFirst(); // a2-a3
+        assertEquals(Color.WHITE, move0.getFrom().getPiece().getColor());
+        assertInstanceOf(Pawn.class, move0.getFrom().getPiece());
+        assertEquals(0, move0.getFrom().getCol());
+        assertEquals(1, move0.getFrom().getRow());
+        assertEquals(0, move0.getTo().getCol());
+        assertEquals(2, move0.getTo().getRow());
+
+        Move move1 = moveList.get(1); // a2-a4
+        assertEquals(Color.WHITE, move1.getFrom().getPiece().getColor());
+        assertInstanceOf(Pawn.class, move1.getFrom().getPiece());
+        assertEquals(0, move1.getFrom().getCol());
+        assertEquals(1, move1.getFrom().getRow());
+        assertEquals(0, move1.getTo().getCol());
+        assertEquals(3, move1.getTo().getRow());
     }
 
     @Test

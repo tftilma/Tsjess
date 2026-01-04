@@ -96,7 +96,7 @@ public class PawnBehaviour extends Behaviour {
             final ChessBoard board = getChessPiece().getBoard();
             Field toField = board.getField(fromField.getCol(),
                     fromField.getRow() + valueForColor(2, -2));
-            if (toField.getPiece() != null) {
+            if (toField.getPiece() == null) {
                 list.add(new Move(fromField, toField));
             }
         }
