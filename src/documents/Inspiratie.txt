@@ -1,0 +1,13 @@
+INSPIRATIE
+
+De inspiratie hiervoor begon met het boek "Schaken voor Computers".
+https://www.chessprogramming.org/images/0/0f/SchaakenvoorComputers.jpg
+geschreven door Peter van Diepen https://www.chessprogramming.org/Peter_van_Diepen
+en https://www.chessprogramming.org/Jaap_van_den_Herik
+
+In 1990 was ik een redelijke schaker met een rating van rond 1650 (later nog wat hoger naar 1800), maar dus ook weer
+niet superhoog, haha! Daarnaast was ik ook in die tijd geïnteresseerd in computers, en de combinatie van die twee
+intrigeerde mij altijd enorm. Aan de andere kant realiseerde ik me ook al snel dat het maken van zo'n schaakprogramma
+ongelooflijk veel tijd zou kosten, en dat bovendien het resultaat waarschijnlijk tegen zou vallen, omdat (1) er al
+anderen zijn die dit hebben gedaan en (2) omdat je als schaker kan "zien", door ervaring, dat een zet slecht is. De
+rating zou lange tijd, waarschijnlijk, erg laag zijn.

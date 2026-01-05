@@ -2,7 +2,7 @@ package nl.tftilma.tsjess.piece;
 
 import nl.tftilma.game.board.Field;
 import nl.tftilma.game.board.Piece;
-import nl.tftilma.tsjess.Move;
+import nl.tftilma.tsjess.move.Move;
 import nl.tftilma.tsjess.board.ChessBoard;
 import nl.tftilma.tsjess.board.Color;
 

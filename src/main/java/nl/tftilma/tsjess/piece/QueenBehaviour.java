@@ -1,7 +1,7 @@
 package nl.tftilma.tsjess.piece;
 
 import nl.tftilma.game.board.Field;
-import nl.tftilma.tsjess.Move;
+import nl.tftilma.tsjess.move.Move;
 
 import java.util.ArrayList;
 import java.util.List;

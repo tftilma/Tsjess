@@ -1,0 +1,8 @@
+TSJESS
+
+Tsjess is een schaakprogramma ontwikkeld door Tsjisse Tilma.
+
+CONCEPTEN
+https://www.chessprogramming.org/Getting_Started
+
+In deze file leg ik verschillende concepten en ideeën vast.
