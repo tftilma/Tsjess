@@ -14,4 +14,5 @@ class RookTest {
         assertNull(rook.getBoard());
         assertEquals(Color.BLACK, rook.getColor());
         assertEquals(PieceIndex.KR.ordinal(), rook.getIdx());
-    }}
+    }
+}
