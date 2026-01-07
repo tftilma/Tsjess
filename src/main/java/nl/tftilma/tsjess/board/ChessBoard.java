@@ -3,7 +3,11 @@ package nl.tftilma.tsjess.board;
 import nl.tftilma.game.board.AbstractBoard;
 import nl.tftilma.game.board.Field;
 import nl.tftilma.game.board.Piece;
+import nl.tftilma.tsjess.move.Move;
 import nl.tftilma.tsjess.piece.*;
+
+import java.util.Deque;
+import java.util.LinkedList;
 
 import static nl.tftilma.tsjess.piece.PieceIndex.*;
 
@@ -13,6 +17,9 @@ public class ChessBoard extends AbstractBoard {
 
     private final Piece[] whitePieces = new Piece[16];
     private final Piece[] blackPieces = new Piece[16];
+    private boolean whiteToMove;
+    private Deque<Move> playedMoves;
+    private Deque<Piece> capturedPieces;
 
     public ChessBoard() {
         super(CHESS_NUM_COLS, CHESS_NUM_ROWS);
@@ -28,6 +35,9 @@ public class ChessBoard extends AbstractBoard {
     }
 
     public void emptyBoard() {
+        whiteToMove = true;
+        capturedPieces = new LinkedList<>();
+        playedMoves = new LinkedList<>();
         initWhitePieces();
         initBlackPieces();
     }
@@ -69,5 +79,51 @@ public class ChessBoard extends AbstractBoard {
         } else {
             return null;
         }
+    }
+
+    public void play(final Move move) {
+        Field fromPos = move.getFrom();
+        Field toPos = move.getTo();
+        Piece piece = move.getFrom().getPiece();
+        Piece capturedPiece = move.getCaptured();
+        setPiece(toPos.getCol(), toPos.getRow(), piece);
+        setPiece(fromPos.getCol(), fromPos.getRow(), null);
+        if (move.getPromotionBehaviour() != null) {
+            Pawn pawn = (Pawn) piece;
+            pawn.setBehaviour(move.getPromotionBehaviour());
+        }
+        if (capturedPiece != null) {
+            capturedPieces.push(capturedPiece);
+            capturedPiece.capture();
+        }
+
+        this.playedMoves.push(move);
+        whiteToMove = !whiteToMove; // WHITE -> BLACK -> WHITE
+    }
+
+    public void undo() {
+        Move move = playedMoves.pop();
+
+        Field fromPos = move.getFrom();
+        Field toPos = move.getTo();
+        Piece piece = move.getFrom().getPiece();
+        Piece capturedPiece = move.getCaptured();
+        setPiece(fromPos.getCol(), fromPos.getRow(), piece);
+        setPiece(toPos.getCol(), toPos.getRow(), move.getCaptured());
+
+        if (move.getPromotionBehaviour() != null) {
+            Pawn pawn = (Pawn) piece;
+            pawn.setBehaviour(new PawnBehaviour(pawn));
+        }
+        if (capturedPiece != null) {
+            Piece foundCapturedPiece = capturedPieces.pop();
+            capturedPiece.place(fromPos);
+        }
+    }
+
+
+    public String print() {
+        StringBuilder sb = new StringBuilder();
+        return  sb.toString();
     }
 }

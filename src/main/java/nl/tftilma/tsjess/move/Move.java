@@ -2,13 +2,13 @@ package nl.tftilma.tsjess.move;
 
 import nl.tftilma.game.board.Field;
 import nl.tftilma.game.board.Piece;
-import nl.tftilma.tsjess.piece.Behaviour;
+import nl.tftilma.tsjess.piece.AbstractBehaviour;
 
 public class Move {
     private final Field from;
     private final Field to;
     private final Piece captured;
-    private Behaviour promotionBehaviour;
+    private AbstractBehaviour promotionBehaviour;
 
     public Move(final Field from, final Field to) {
         this.from = from;
@@ -17,7 +17,7 @@ public class Move {
         this.promotionBehaviour = null;
     }
 
-    public Move(final Field from, final Field to, final Behaviour promotionBehaviour) {
+    public Move(final Field from, final Field to, final AbstractBehaviour promotionBehaviour) {
         this.from = from;
         this.to = to;
         this.captured = to.getPiece();
@@ -42,7 +42,7 @@ public class Move {
         return captured;
     }
 
-    public Behaviour getPromotionBehaviour() {
+    public AbstractBehaviour getPromotionBehaviour() {
         return promotionBehaviour;
     }
 }

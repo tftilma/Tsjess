@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class RookBehaviour extends Behaviour {
-    RookBehaviour(ChessPiece rook) {
+class RookBehaviour extends AbstractBehaviour {
+    RookBehaviour(AbstractChessPiece rook) {
         super(rook);
     }
 
+    @Override
     List<Move> generate(final Move prevMove) {
         List<Move> list = new ArrayList<>();
         final Field field = getChessPiece().getField();

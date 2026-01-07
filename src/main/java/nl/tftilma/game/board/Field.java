@@ -1,7 +1,5 @@
 package nl.tftilma.game.board;
 
-import nl.tftilma.tsjess.piece.ChessPiece;
-
 public class Field {
     private final int col;
     private final int row;

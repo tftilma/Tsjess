@@ -8,16 +8,16 @@ import nl.tftilma.tsjess.board.ChessBoard;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public abstract class Behaviour {
-    private final ChessPiece chessPiece;
+public abstract class AbstractBehaviour {
+    private final AbstractChessPiece chessPiece;
 
-    Behaviour(final ChessPiece chessPiece) {
+    AbstractBehaviour(final AbstractChessPiece chessPiece) {
         this.chessPiece = chessPiece;
     }
 
     abstract List<Move> generate(Move prevMove);
 
-    protected ChessPiece getChessPiece() {
+    protected AbstractChessPiece getChessPiece() {
         return chessPiece;
     }
 

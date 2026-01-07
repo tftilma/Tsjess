@@ -8,13 +8,13 @@ import nl.tftilma.tsjess.board.ChessBoard;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class PawnBehaviour extends Behaviour {
+public class PawnBehaviour extends AbstractBehaviour {
 
     public PawnBehaviour(final Pawn pawn) {
         super(pawn);
     }
 
+    @Override
     public List<Move> generate(final Move prevMove) {
         List<Move> list = new ArrayList<>();
         final Field field = getChessPiece().getField();

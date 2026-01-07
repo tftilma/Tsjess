@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class QueenBehaviour extends Behaviour {
-    QueenBehaviour(final ChessPiece queen) {
+class QueenBehaviour extends AbstractBehaviour {
+    QueenBehaviour(final AbstractChessPiece queen) {
         super(queen);
     }
 
+    @Override
     List<Move> generate(Move prevMove) {
         List<Move> list = new ArrayList<>();
         final Field field = getChessPiece().getField();

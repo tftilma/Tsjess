@@ -8,19 +8,19 @@ import nl.tftilma.tsjess.board.Color;
 
 import java.util.List;
 
-public abstract class ChessPiece implements Piece {
+public abstract class AbstractChessPiece implements Piece {
     private final ChessBoard board;
     private final Color color;
     private final int idx;
     private Field field;
 
-    public ChessPiece(final Color color, final int idx, final ChessBoard board) {
+    AbstractChessPiece(final Color color, final int idx, final ChessBoard board) {
         this.color = color;
         this.idx = idx;
         this.board = board;
     }
 
-    public ChessPiece(final Color color, final PieceIndex pieceIdx, final ChessBoard board) {
+    public AbstractChessPiece(final Color color, final PieceIndex pieceIdx, final ChessBoard board) {
         this.color = color;
         this.idx = pieceIdx.ordinal();
         this.board = board;
@@ -52,7 +52,7 @@ public abstract class ChessPiece implements Piece {
         return idx;
     }
 
-    protected abstract Behaviour getBehaviour();
+    protected abstract AbstractBehaviour getBehaviour();
 
     public final List<Move> generate(final Move prevMove) {
         return getBehaviour().generate(prevMove);

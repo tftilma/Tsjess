@@ -12,7 +12,7 @@ import java.util.List;
 import static nl.tftilma.tsjess.piece.PieceIndex.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PawnBehaviourTest {
+class PawnBehaviourTest {
     private ChessBoard board;
 
     @BeforeEach
@@ -25,7 +25,6 @@ public class PawnBehaviourTest {
     void testMoveOneForwardWhiteWhite() {
         testMoveOneForward(board, Color.WHITE, Color.WHITE);
     }
-
 
     @Test
     void testMoveOneForwardWhiteBlack() {
@@ -43,7 +42,7 @@ public class PawnBehaviourTest {
     }
 
     void testMoveOneForward(ChessBoard board, Color color, Color otherColor) {
-        ChessPiece aPawn = (ChessPiece) board.findPiece(color, AP.ordinal());
+        AbstractChessPiece aPawn = (AbstractChessPiece) board.findPiece(color, AP.ordinal());
         assertNotNull(aPawn);
         assertInstanceOf(Pawn.class, aPawn);
         board.setPiece(0, 5, aPawn);
@@ -75,10 +74,9 @@ public class PawnBehaviourTest {
 
     }
 
-
     @Test
     void testMoveTwoForward() {
-        ChessPiece aPawn = (ChessPiece) board.findPiece(Color.WHITE, AP.ordinal());
+        AbstractChessPiece aPawn = (AbstractChessPiece) board.findPiece(Color.WHITE, AP.ordinal());
         assertNotNull(aPawn);
         assertInstanceOf(Pawn.class, aPawn);
         board.setPiece(0, 1, aPawn);
@@ -106,12 +104,11 @@ public class PawnBehaviourTest {
 
     @Test
     void testMovePromote() {
-        ChessPiece pawn = (ChessPiece) board.findPiece(Color.WHITE, DP.ordinal());
+        AbstractChessPiece pawn = (AbstractChessPiece) board.findPiece(Color.WHITE, DP.ordinal());
         assertNotNull(pawn);
         assertInstanceOf(Pawn.class, pawn);
         board.setPiece(3, 6, pawn); // pawn on d7
 
-        //ChessPiece rook = (ChessPiece) board.findPiece(Color.BLACK, QR.ordinal());
         Piece rook = board.findPiece(Color.BLACK, QR.ordinal());
         assertNotNull(rook);
         assertInstanceOf(Rook.class, rook);

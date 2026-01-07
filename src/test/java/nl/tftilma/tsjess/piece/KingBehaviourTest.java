@@ -1,4 +1,4 @@
 package nl.tftilma.tsjess.piece;
 
-public class KingBehaviourTest {
+class KingBehaviourTest {
 }

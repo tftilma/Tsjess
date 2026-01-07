@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class KingBehaviour extends Behaviour {
+class KingBehaviour extends AbstractBehaviour {
     KingBehaviour(final King king) {
         super(king);
     }
 
+    @Override
     List<Move> generate(Move prevMove) {
         List<Move> list = new ArrayList<>();
         final Field field = getChessPiece().getField();

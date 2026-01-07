@@ -4,15 +4,16 @@ import nl.tftilma.tsjess.board.ChessBoard;
 import nl.tftilma.tsjess.board.Color;
 
 
-public class Bishop extends ChessPiece {
-    private final Behaviour behavior;
+public class Bishop extends AbstractChessPiece {
+    private final AbstractBehaviour behaviour;
 
     public Bishop(final Color color, final PieceIndex idx, final ChessBoard board) {
         super(color, idx, board);
-        behavior = new BishopBehaviour(this);
+        behaviour = new BishopBehaviour(this);
     }
 
-    protected Behaviour getBehaviour() {
-        return behavior;
+    @Override
+    protected AbstractBehaviour getBehaviour() {
+        return behaviour;
     }
 }
