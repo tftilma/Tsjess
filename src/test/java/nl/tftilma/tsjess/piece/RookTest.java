@@ -10,7 +10,7 @@ class RookTest {
     @Test
     void testRook() {
         Rook rook = new Rook(Color.BLACK, PieceIndex.KR, null);
-        assertInstanceOf(BishopBehaviour.class, rook.getBehaviour());
+        assertInstanceOf(RookBehaviour.class, rook.getBehaviour());
         assertNull(rook.getBoard());
         assertEquals(Color.BLACK, rook.getColor());
         assertEquals(PieceIndex.KR.ordinal(), rook.getIdx());
