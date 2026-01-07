@@ -15,4 +15,9 @@ public class Knight extends AbstractChessPiece {
     protected AbstractBehaviour getBehaviour() {
         return behaviour;
    }
+
+    @Override
+    public String abbreviation() {
+        return "n";
+    }
 }

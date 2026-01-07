@@ -26,6 +26,11 @@ class FieldTest {
             protected AbstractBehaviour getBehaviour() {
                 return null;
             }
+
+            @Override
+            public String abbreviation() {
+                return "V";
+            }
         });
         assertNotNull(field);
         assertNotNull(field.getPiece());

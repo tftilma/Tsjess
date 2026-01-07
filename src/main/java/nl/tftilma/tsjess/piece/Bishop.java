@@ -16,4 +16,11 @@ public class Bishop extends AbstractChessPiece {
     protected AbstractBehaviour getBehaviour() {
         return behaviour;
     }
+
+    @Override
+    public String abbreviation() {
+        return "b";
+    }
+
+
 }

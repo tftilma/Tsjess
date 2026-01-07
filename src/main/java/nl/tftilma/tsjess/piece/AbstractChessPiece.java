@@ -65,4 +65,15 @@ public abstract class AbstractChessPiece implements Piece {
     public Field getField() {
         return field;
     }
+
+    public abstract String abbreviation();
+
+    @Override
+    public String toString() {
+        if (isWhite()) {
+            return this.abbreviation().toLowerCase();
+        } else {
+            return this.abbreviation().toUpperCase();
+        }
+    }
 }

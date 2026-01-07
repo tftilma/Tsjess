@@ -29,4 +29,15 @@ public class Field {
     public int getRow() {
         return row;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (piece == null) {
+            sb.append("  ");
+        } else {
+            sb.append(piece);
+        }
+        return sb.toString();
+    }
 }

@@ -68,7 +68,9 @@ public class ChessBoard extends AbstractBoard {
     public void setPiece(final int col, final int row, final Piece piece) {
         Field field = this.getField(col, row);
         field.setPiece(piece);
-        piece.place(field);
+        if (piece != null) {
+            piece.place(field);
+        }
     }
 
     public Piece findPiece(final Color color, final int idx) {
@@ -117,13 +119,29 @@ public class ChessBoard extends AbstractBoard {
         }
         if (capturedPiece != null) {
             Piece foundCapturedPiece = capturedPieces.pop();
+            assert foundCapturedPiece == capturedPiece;
             capturedPiece.place(fromPos);
         }
     }
 
 
-    public String print() {
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("CHESSBOARD\n");
+        sb.append("numCols="); sb.append(getNumCols()); sb.append("\n");
+        sb.append("numRows="); sb.append(getNumRows()); sb.append("\n");
+        for (int r=0; r<getNumRows(); r++) {
+            for (int c = 0; c < getNumCols(); c++) {
+                sb.append(this.getField(c, r));
+                if (c < 7) {
+                    sb.append("-");
+                } else {
+                    sb.append("\n");
+                }
+            }
+        }
+
         return  sb.toString();
     }
 }

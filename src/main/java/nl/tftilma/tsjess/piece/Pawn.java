@@ -7,11 +7,6 @@ import nl.tftilma.tsjess.board.Color;
 public class Pawn extends AbstractChessPiece {
     private AbstractBehaviour behaviour;
 
-    public Pawn(final Color color, final PieceIndex idx, final ChessBoard board) {
-        super(color, idx, board);
-        behaviour = new PawnBehaviour(this);
-    }
-
     public Pawn(final Color color, final int idx, final ChessBoard board) {
         super(color, idx, board);
         behaviour = new PawnBehaviour(this);
@@ -24,5 +19,10 @@ public class Pawn extends AbstractChessPiece {
 
     public void setBehaviour(final AbstractBehaviour behaviour) {
         this.behaviour = behaviour;
+    }
+
+    @Override
+    public String abbreviation() {
+        return "x";
     }
 }

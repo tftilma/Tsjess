@@ -15,4 +15,9 @@ public class Rook extends AbstractChessPiece {
     protected AbstractBehaviour getBehaviour() {
         return behaviour;
     }
+
+    @Override
+    public String abbreviation() {
+        return "r";
+    }
 }
