@@ -1,5 +1,6 @@
 package nl.tftilma.tsjess.piece;
 
+import nl.tftilma.game.board.Field;
 import nl.tftilma.game.board.Piece;
 import nl.tftilma.tsjess.move.Move;
 import nl.tftilma.tsjess.board.ChessBoard;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static nl.tftilma.tsjess.board.Position.*;
 import static nl.tftilma.tsjess.piece.PieceIndex.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -196,6 +198,41 @@ class PawnBehaviourTest {
 
     @Test
     void testEnPassent() {
+        AbstractChessPiece whitePawn = (AbstractChessPiece) board.findPiece(Color.WHITE, GP.ordinal());
+        assertNotNull(whitePawn);
+        assertInstanceOf(Pawn.class, whitePawn);
+        board.setPiece(COL_G, ROW_5, whitePawn); // pawn on g5
 
+        AbstractChessPiece blackPawn = (AbstractChessPiece) board.findPiece(Color.BLACK, HP.ordinal());
+        assertNotNull(blackPawn);
+        assertInstanceOf(Pawn.class, blackPawn);
+        board.setPiece(COL_H, ROW_5, blackPawn); // pawn on h5
+
+        Field fromField = board.getField(COL_H, ROW_7);
+        fromField.setPiece(blackPawn);
+        Field toField = board.getField(COL_H, ROW_5);
+        Move prevMove = new Move(fromField, toField);
+
+        List<Move> moveList = whitePawn.generate(prevMove);
+        assertNotNull(moveList);
+        assertEquals(2, moveList.size());
+
+        Move move0 = moveList.getFirst();
+        assertEquals(whitePawn, move0.getFrom().getPiece());
+        assertEquals(COL_G, move0.getFrom().getCol());
+        assertEquals(ROW_5, move0.getFrom().getRow());
+        assertEquals(COL_G, move0.getTo().getCol());
+        assertEquals(ROW_6, move0.getTo().getRow());
+        assertNull(move0.getPromotionBehaviour());
+        assertNull(move0.getCaptured());
+
+        Move move1 = moveList.get(1);
+        assertEquals(whitePawn, move1.getFrom().getPiece());
+        assertEquals(COL_G, move1.getFrom().getCol());
+        assertEquals(ROW_5, move1.getFrom().getRow());
+        assertEquals(COL_H, move1.getTo().getCol());
+        assertEquals(ROW_6, move1.getTo().getRow());
+        assertNull(move1.getPromotionBehaviour());
+        assertEquals(blackPawn, move1.getCaptured());
     }
 }

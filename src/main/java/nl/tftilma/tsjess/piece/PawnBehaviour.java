@@ -130,7 +130,7 @@ public class PawnBehaviour extends AbstractBehaviour {
     private void tryEnPassent(List<Move> list, Move prevMove) {
         if (prevMove != null) {
             final Field fromField = getChessPiece().getField();
-            if (isEither (prevMove.getTo().getCol(), fromField.getCol()+1, fromField.getCol()-1)) {
+            if (!isEither (prevMove.getTo().getCol(), fromField.getCol()+1, fromField.getCol()-1)) {
                 return;
             }
             if (fromField.getRow() != valueForColor(4, 3)) {
