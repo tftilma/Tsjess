@@ -17,7 +17,15 @@ public class Player {
         this.kindPlayer = kindPlayer;
         this.name = name;
     }
-    
+
+    public static Player human() {
+        return new Player(KindPlayer.HUMAN, "player");
+    }
+
+    public static Player comp() {
+        return new Player(KindPlayer.COMPUTER, "computer");
+    }
+
     public String getName() {
         return name;
     }

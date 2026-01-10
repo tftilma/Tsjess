@@ -8,6 +8,8 @@ import nl.tftilma.tsjess.board.Color;
 
 
 public interface Piece {
+    void init(final Field field);
+
     void place(final Field field);
 
      void capture();

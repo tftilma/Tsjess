@@ -13,6 +13,7 @@ public abstract class AbstractChessPiece implements Piece {
     private final Color color;
     private final int idx;
     private Field field;
+    private boolean init = true;
 
     AbstractChessPiece(final Color color, final int idx, final ChessBoard board) {
         this.color = color;
@@ -26,8 +27,15 @@ public abstract class AbstractChessPiece implements Piece {
         this.board = board;
     }
 
+    public void init(final Field field) {
+        this.field = field;
+        field.setPiece(this);
+        this.init = true;
+    }
+
     public void place(final Field field) {
         this.field = field;
+        this.init = false;
     }
 
     public void capture() {
@@ -76,4 +84,13 @@ public abstract class AbstractChessPiece implements Piece {
             return this.abbreviation().toUpperCase();
         }
     }
+
+    public boolean isInit() {
+        return init;
+    }
+
+    public int valueForColor(int forWhite, int forBlack) {
+        return isWhite() ? forWhite : forBlack;
+    }
+
 }

@@ -86,9 +86,6 @@ public class PawnBehaviour extends AbstractBehaviour {
         return getChessPiece().getField().getRow() == valueForColor(1, 6);
     }
 
-    private int valueForColor(int forWhite, int forBlack) {
-        return getChessPiece().isWhite() ? forWhite : forBlack;
-    }
 
     private void tryDoubleForward(List<Move> list) {
         if (isOnInitialPosition()) {

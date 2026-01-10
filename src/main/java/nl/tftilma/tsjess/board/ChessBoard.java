@@ -66,14 +66,27 @@ public class ChessBoard extends AbstractBoard {
     }
 
     public void setPiece(final int col, final int row, final Piece piece) {
+        setPiece(col, row, piece, false);
+    }
+
+    public void initPiece(final int col, final int row, final Piece piece) {
+        setPiece(col, row, piece, true);
+    }
+
+    public void setPiece(final int col, final int row, final Piece piece, boolean init) {
         Field field = this.getField(col, row);
         field.setPiece(piece);
         if (piece != null) {
-            piece.place(field);
+            if (init) {
+                piece.init(field);
+            } else {
+                piece.place(field);
+            }
         }
     }
 
-    public Piece findPiece(final Color color, final int idx) {
+
+        public Piece findPiece(final Color color, final int idx) {
         if (color == Color.WHITE) {
             return whitePieces[idx];
         } else if (color == Color.BLACK){
@@ -143,5 +156,9 @@ public class ChessBoard extends AbstractBoard {
         }
 
         return  sb.toString();
+    }
+
+    public boolean isWhiteToMove() {
+        return isWhiteToMove();
     }
 }

@@ -143,4 +143,9 @@ public abstract class AbstractBehaviour {
             }
         }
     }
+
+    public int valueForColor(int forWhite, int forBlack) {
+        return getChessPiece().isWhite() ? forWhite : forBlack;
+    }
+
 }
