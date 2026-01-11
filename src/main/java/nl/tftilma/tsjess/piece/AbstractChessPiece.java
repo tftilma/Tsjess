@@ -27,21 +27,30 @@ public abstract class AbstractChessPiece implements Piece {
         this.board = board;
     }
 
+    @Override
     public void init(final Field field) {
         this.field = field;
         field.setPiece(this);
         this.init = true;
     }
 
+    @Override
     public void place(final Field field) {
         this.field = field;
         this.init = false;
     }
 
+    @Override
     public void capture() {
         this.field = null;
     }
 
+    @Override
+    public boolean isCaptured() {
+        return field == null;
+    }
+
+    @Override
     public Color getColor() {
         return color;
     }
@@ -54,27 +63,28 @@ public abstract class AbstractChessPiece implements Piece {
         return color == Color.BLACK;
     }
 
-
-
+    @Override
     public int getIdx() {
         return idx;
     }
 
     protected abstract AbstractBehaviour getBehaviour();
 
+    @Override
     public final List<Move> generate(final Move prevMove) {
         return getBehaviour().generate(prevMove);
     }
 
+    @Override
     public ChessBoard getBoard() {
         return board;
     }
 
+    @Override
     public Field getField() {
         return field;
     }
 
-    public abstract String abbreviation();
 
     @Override
     public String toString() {

@@ -12,7 +12,9 @@ public interface Piece {
 
     void place(final Field field);
 
-     void capture();
+    void capture();
+
+    boolean isCaptured();
 
     Color getColor();
 
@@ -23,4 +25,7 @@ public interface Piece {
     ChessBoard getBoard();
 
     Field getField();
+
+    String abbreviation();
+
 }

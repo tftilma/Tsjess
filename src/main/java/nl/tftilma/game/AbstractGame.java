@@ -12,8 +12,6 @@ public abstract class AbstractGame {
     }
 
     public void playMove(final Move move) {
-        Field from = move.getFrom();
-        Field to = move.getTo();
-
+        board.play(move);
     }
 }

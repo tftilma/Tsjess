@@ -85,8 +85,7 @@ public class ChessBoard extends AbstractBoard {
         }
     }
 
-
-        public Piece findPiece(final Color color, final int idx) {
+    public Piece findPiece(final Color color, final int idx) {
         if (color == Color.WHITE) {
             return whitePieces[idx];
         } else if (color == Color.BLACK){
@@ -94,6 +93,20 @@ public class ChessBoard extends AbstractBoard {
         } else {
             return null;
         }
+    }
+
+    public boolean exists(final PieceIndex idx) {
+        return exists(idx.ordinal());
+    }
+
+    public boolean exists(final int idx) {
+        Piece piece;
+        if (isWhiteToMove()) {
+            piece = findPiece(Color.WHITE, idx);
+        } else {
+            piece = findPiece(Color.BLACK, idx);
+        }
+        return piece.isCaptured();
     }
 
     public void play(final Move move) {
@@ -159,6 +172,6 @@ public class ChessBoard extends AbstractBoard {
     }
 
     public boolean isWhiteToMove() {
-        return isWhiteToMove();
+        return whiteToMove;
     }
 }

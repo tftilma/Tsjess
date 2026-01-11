@@ -1,5 +1,7 @@
 package nl.tftilma.game.board;
 
+import nl.tftilma.tsjess.move.Move;
+
 
 public abstract class AbstractBoard {
     private final int numCols;
@@ -30,5 +32,7 @@ public abstract class AbstractBoard {
     public Field getField(final int col, final int row) {
         return fields[col][row];
     }
+
+    public abstract void play(final Move move);
 }
 
