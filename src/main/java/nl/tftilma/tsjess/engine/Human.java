@@ -17,19 +17,11 @@ public class Human extends Player{
         String playersMoveStr;
         do {
             System.out.print("Your move: ");
+            // TODO readLine() werkt wellicht niet
             //playersMoveStr = System.console().readLine();
             playersMoveStr = "e2-e4";
         } while(!isValidMove(board, playersMoveStr));
         return convert(board, playersMoveStr);
     }
 
-    private boolean isValidMove(final ChessBoard board, final String playersMoveStr) {
-        // TODO
-        return true;
-    }
-
-    private Move convert(final ChessBoard board, final String playersMoveStr) {
-        // TODO
-        return null;
-    }
 }

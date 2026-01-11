@@ -25,14 +25,13 @@ public class Tsjess extends AbstractGame  {
         System.out.println(board);
         Move move = whitePlayer.think(board);
         playMove(move);
-        System.out.println(board);
 
+        System.out.println(board);
         move = blackPlayer.think(board);
         playMove(move);
-        System.out.println(board);
     }
 
-    static void main() {
+    public static void main() {
         System.out.println("Starting Tsjess");
         Tsjess tsjessGame = new Tsjess(new ChessBoard(), Player.createHuman(), Player.createHuman());
         tsjessGame.init();

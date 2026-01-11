@@ -35,4 +35,14 @@ public abstract class Player {
     public abstract boolean isBot();
 
     public abstract Move think(ChessBoard board);
+
+    protected boolean isValidMove(final ChessBoard board, final String playersMoveStr) {
+        // TODO
+        return true;
+    }
+
+    protected Move convert(final ChessBoard board, final String playersMoveStr) {
+        // TODO
+        return null;
+    }
 }
