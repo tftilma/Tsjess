@@ -24,11 +24,11 @@ public class Tsjess extends AbstractGame  {
     public void run() {
         System.out.println(board);
         Move move = whitePlayer.think(board);
-        playMove(move);
+        //playMove(move);
 
-        System.out.println(board);
-        move = blackPlayer.think(board);
-        playMove(move);
+        //System.out.println(board);
+        //move = blackPlayer.think(board);
+        //playMove(move);
     }
 
     public static void main() {

@@ -34,7 +34,7 @@ public class Field {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         if (piece == null) {
-            sb.append("  ");
+            sb.append(" ");
         } else {
             sb.append(piece);
         }

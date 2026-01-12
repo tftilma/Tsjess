@@ -9,6 +9,7 @@ import nl.tftilma.tsjess.piece.*;
 import java.util.Deque;
 import java.util.LinkedList;
 
+import static nl.tftilma.tsjess.board.Position.*;
 import static nl.tftilma.tsjess.piece.PieceIndex.*;
 
 public class ChessBoard extends AbstractBoard {
@@ -31,7 +32,41 @@ public class ChessBoard extends AbstractBoard {
     }
 
     private void placePiecesStandard() {
+        this.setPiece(COL_A, ROW_1, whitePieces[QR.ordinal()]); // set WQR on A1
+        this.setPiece(COL_B, ROW_1, whitePieces[QN.ordinal()]); // set WQN on B1
+        this.setPiece(COL_C, ROW_1, whitePieces[QB.ordinal()]); // set WQB on C1
+        this.setPiece(COL_D, ROW_1, whitePieces[QQ.ordinal()]); // set WQQ on D1
+        this.setPiece(COL_E, ROW_1, whitePieces[KK.ordinal()]); // set WKK on E1
+        this.setPiece(COL_F, ROW_1, whitePieces[KB.ordinal()]); // set WKB on F1
+        this.setPiece(COL_G, ROW_1, whitePieces[KN.ordinal()]); // set WKN on G1
+        this.setPiece(COL_H, ROW_1, whitePieces[KR.ordinal()]); // set WKR on H1
 
+        this.setPiece(COL_A, ROW_2, whitePieces[AP.ordinal()]); // set WQR on A1
+        this.setPiece(COL_B, ROW_2, whitePieces[BP.ordinal()]); // set WQN on B1
+        this.setPiece(COL_C, ROW_2, whitePieces[CP.ordinal()]); // set WQB on C1
+        this.setPiece(COL_D, ROW_2, whitePieces[DP.ordinal()]); // set WQQ on D1
+        this.setPiece(COL_E, ROW_2, whitePieces[EP.ordinal()]); // set WKK on E1
+        this.setPiece(COL_F, ROW_2, whitePieces[FP.ordinal()]); // set WKB on F1
+        this.setPiece(COL_G, ROW_2, whitePieces[GP.ordinal()]); // set WKN on G1
+        this.setPiece(COL_H, ROW_2, whitePieces[HP.ordinal()]); // set WKR on H1
+
+        this.setPiece(COL_A, ROW_8, blackPieces[QR.ordinal()]); // set BQR on A8
+        this.setPiece(COL_B, ROW_8, blackPieces[QN.ordinal()]); // set BQN on B8
+        this.setPiece(COL_C, ROW_8, blackPieces[QB.ordinal()]); // set BQB on C8
+        this.setPiece(COL_D, ROW_8, blackPieces[QQ.ordinal()]); // set BQQ on D8
+        this.setPiece(COL_E, ROW_8, blackPieces[KK.ordinal()]); // set BKK on E8
+        this.setPiece(COL_F, ROW_8, blackPieces[KB.ordinal()]); // set BKB on F8
+        this.setPiece(COL_G, ROW_8, blackPieces[KN.ordinal()]); // set BKN on G8
+        this.setPiece(COL_H, ROW_8, blackPieces[KR.ordinal()]); // set BKR on H8
+
+        this.setPiece(COL_A, ROW_7, blackPieces[AP.ordinal()]); // set BQR on A7
+        this.setPiece(COL_B, ROW_7, blackPieces[BP.ordinal()]); // set BQN on B7
+        this.setPiece(COL_C, ROW_7, blackPieces[CP.ordinal()]); // set BQB on C7
+        this.setPiece(COL_D, ROW_7, blackPieces[DP.ordinal()]); // set BQQ on D7
+        this.setPiece(COL_E, ROW_7, blackPieces[EP.ordinal()]); // set BKK on E7
+        this.setPiece(COL_F, ROW_7, blackPieces[FP.ordinal()]); // set BKB on F7
+        this.setPiece(COL_G, ROW_7, blackPieces[GP.ordinal()]); // set BKN on G7
+        this.setPiece(COL_H, ROW_7, blackPieces[HP.ordinal()]); // set BKR on H7
     }
 
     public void emptyBoard() {
@@ -155,9 +190,9 @@ public class ChessBoard extends AbstractBoard {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("CHESSBOARD\n");
-        sb.append("numCols="); sb.append(getNumCols()); sb.append("\n");
-        sb.append("numRows="); sb.append(getNumRows()); sb.append("\n");
-        for (int r=0; r<getNumRows(); r++) {
+        //sb.append("numCols="); sb.append(getNumCols()); sb.append("\n");
+        //sb.append("numRows="); sb.append(getNumRows()); sb.append("\n");
+        for (int r=getNumRows()-1; r>=0; r--) {
             for (int c = 0; c < getNumCols(); c++) {
                 sb.append(this.getField(c, r));
                 if (c < 7) {
