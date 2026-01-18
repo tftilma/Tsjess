@@ -9,15 +9,15 @@ import java.util.List;
 import java.util.function.BiFunction;
 
 public abstract class AbstractBehaviour {
-    private final AbstractChessPiece chessPiece;
+    private final Piece chessPiece;
 
-    AbstractBehaviour(final AbstractChessPiece chessPiece) {
+    AbstractBehaviour(final Piece chessPiece) {
         this.chessPiece = chessPiece;
     }
 
     abstract List<Move> generate(Move prevMove);
 
-    protected AbstractChessPiece getChessPiece() {
+    protected Piece getChessPiece() {
         return chessPiece;
     }
 

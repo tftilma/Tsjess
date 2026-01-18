@@ -1,14 +1,15 @@
 package nl.tftilma.tsjess.piece;
 
 import nl.tftilma.game.board.Field;
+import nl.tftilma.game.board.Piece;
 import nl.tftilma.tsjess.move.Move;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-class QueenBehaviour extends AbstractBehaviour {
-    QueenBehaviour(final AbstractChessPiece queen) {
+public class QueenBehaviour extends AbstractBehaviour {
+    public QueenBehaviour(final Piece queen) {
         super(queen);
     }
 

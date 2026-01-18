@@ -1,14 +1,15 @@
 package nl.tftilma.tsjess.piece;
 
 import nl.tftilma.game.board.Field;
+import nl.tftilma.game.board.Piece;
 import nl.tftilma.tsjess.move.Move;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-class RookBehaviour extends AbstractBehaviour {
-    RookBehaviour(AbstractChessPiece rook) {
+public class RookBehaviour extends AbstractBehaviour {
+    public RookBehaviour(Piece rook) {
         super(rook);
     }
 

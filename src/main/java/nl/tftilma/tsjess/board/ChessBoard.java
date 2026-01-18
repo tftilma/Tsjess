@@ -21,7 +21,7 @@ public class ChessBoard extends AbstractBoard {
     private final Piece[] blackPieces = new Piece[16];
     private boolean whiteToMove;
     private Deque<Move> playedMoves;
-    private Deque<Piece> capturedPieces;
+    private Deque<Piece> capturedPieces = new LinkedList<>();
 
     public ChessBoard() {
         super(CHESS_NUM_COLS, CHESS_NUM_ROWS);

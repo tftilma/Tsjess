@@ -1,14 +1,15 @@
 package nl.tftilma.tsjess.piece;
 
 import nl.tftilma.game.board.Field;
+import nl.tftilma.game.board.Piece;
 import nl.tftilma.tsjess.move.Move;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-class KnightBehaviour extends AbstractBehaviour {
-    KnightBehaviour(final AbstractChessPiece knight) {
+public class KnightBehaviour extends AbstractBehaviour {
+    public KnightBehaviour(final Piece knight) {
         super(knight);
     }
 

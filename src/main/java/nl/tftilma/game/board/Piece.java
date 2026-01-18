@@ -28,4 +28,7 @@ public interface Piece {
 
     String abbreviation();
 
+    boolean isWhite();
+
+    boolean isInit();
 }
