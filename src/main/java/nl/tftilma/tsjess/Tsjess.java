@@ -23,7 +23,7 @@ public class Tsjess extends AbstractGame  {
 
     public void run() {
         System.out.println(board);
-        Move move = whitePlayer.think(board);
+        //Move move = whitePlayer.think(board);
         //playMove(move);
 
         //System.out.println(board);
@@ -31,7 +31,7 @@ public class Tsjess extends AbstractGame  {
         //playMove(move);
     }
 
-    public static void main() {
+    static void main() {
         System.out.println("Starting Tsjess");
         Tsjess tsjessGame = new Tsjess(new ChessBoard(), Player.createHuman(), Player.createHuman());
         tsjessGame.init();

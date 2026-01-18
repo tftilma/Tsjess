@@ -14,6 +14,11 @@ class AbstractBoardTest {
         }
 
         @Override
+        public void setShortcuts(Field[][] fields) {
+
+        }
+
+        @Override
         public void play(Move move) {
         }
     }

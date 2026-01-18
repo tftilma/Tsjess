@@ -18,9 +18,7 @@ public class Move {
     }
 
     public Move(final Field from, final Field to, final AbstractBehaviour promotionBehaviour) {
-        this.from = from;
-        this.to = to;
-        this.captured = to.getPiece();
+        this(from, to);
         this.promotionBehaviour = promotionBehaviour;
     }
 

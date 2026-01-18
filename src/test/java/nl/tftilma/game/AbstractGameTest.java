@@ -15,6 +15,11 @@ public class AbstractGameTest {
          }
          AbstractBoard abstractBoard = new AbstractBoard(2, 2) {
              @Override
+             public void setShortcuts(Field[][] fields) {
+
+             }
+
+             @Override
              public void play(Move move) {}
          };
          MyGame myGame = new MyGame(abstractBoard);

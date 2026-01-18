@@ -19,7 +19,11 @@ public abstract class AbstractBoard {
                 fields[c][r] = new Field(c, r);
             }
         }
+
+        setShortcuts(fields);
     }
+
+    public abstract void setShortcuts(Field[][] fields);
 
     public int getNumCols() {
         return numCols;
@@ -27,6 +31,10 @@ public abstract class AbstractBoard {
 
     public int getNumRows() {
         return numRows;
+    }
+
+    public Field getField(final Field field) {
+        return getField(field.getCol(), field.getRow());
     }
 
     public Field getField(final int col, final int row) {

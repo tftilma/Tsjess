@@ -102,5 +102,4 @@ public abstract class AbstractChessPiece implements Piece {
     public int valueForColor(int forWhite, int forBlack) {
         return isWhite() ? forWhite : forBlack;
     }
-
 }

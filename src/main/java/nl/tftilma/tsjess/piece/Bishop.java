@@ -21,6 +21,4 @@ public class Bishop extends AbstractChessPiece {
     public String abbreviation() {
         return "b";
     }
-
-
 }

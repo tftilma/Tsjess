@@ -9,6 +9,7 @@ import nl.tftilma.tsjess.piece.*;
 import java.util.Deque;
 import java.util.LinkedList;
 
+import static nl.tftilma.game.board.Field.*;
 import static nl.tftilma.tsjess.board.Position.*;
 import static nl.tftilma.tsjess.piece.PieceIndex.*;
 
@@ -32,9 +33,9 @@ public class ChessBoard extends AbstractBoard {
     }
 
     private void placePiecesStandard() {
-        this.setPiece(COL_A, ROW_1, whitePieces[QR.ordinal()]); // set WQR on A1
-        this.setPiece(COL_B, ROW_1, whitePieces[QN.ordinal()]); // set WQN on B1
-        this.setPiece(COL_C, ROW_1, whitePieces[QB.ordinal()]); // set WQB on C1
+        this.setPiece(A1, whitePieces[QR.ordinal()]); // set WQR on A1
+        this.setPiece(B1, whitePieces[QN.ordinal()]); // set WQN on B1
+        this.setPiece(C1, whitePieces[QB.ordinal()]); // set WQB on C1
         this.setPiece(COL_D, ROW_1, whitePieces[QQ.ordinal()]); // set WQQ on D1
         this.setPiece(COL_E, ROW_1, whitePieces[KK.ordinal()]); // set WKK on E1
         this.setPiece(COL_F, ROW_1, whitePieces[KB.ordinal()]); // set WKB on F1
@@ -100,6 +101,10 @@ public class ChessBoard extends AbstractBoard {
         }
     }
 
+    public void setPiece(final Field field, final Piece piece) {
+        setPiece(field.getCol(), field.getRow(), piece, false);
+    }
+
     public void setPiece(final int col, final int row, final Piece piece) {
         setPiece(col, row, piece, false);
     }
@@ -144,10 +149,85 @@ public class ChessBoard extends AbstractBoard {
         return piece.isCaptured();
     }
 
+    @Override
+    public void setShortcuts(Field[][] fields) {
+        A1 = fields[COL_A][ROW_1];
+        Field.A2 = fields[COL_A][ROW_2];
+        Field.A3 = fields[COL_A][ROW_3];
+        Field.A4 = fields[COL_A][ROW_4];
+        Field.A5 = fields[COL_A][ROW_5];
+        Field.A6 = fields[COL_A][ROW_6];
+        Field.A7 = fields[COL_A][ROW_7];
+        Field.A8 = fields[COL_A][ROW_8];
+
+        Field.B1 = fields[COL_B][ROW_1];
+        Field.B2 = fields[COL_B][ROW_2];
+        Field.B3 = fields[COL_B][ROW_3];
+        Field.B4 = fields[COL_B][ROW_4];
+        Field.B5 = fields[COL_B][ROW_5];
+        Field.B6 = fields[COL_B][ROW_6];
+        Field.B7 = fields[COL_B][ROW_7];
+        Field.B8 = fields[COL_B][ROW_8];
+
+        Field.C1 = fields[COL_C][ROW_1];
+        Field.C2 = fields[COL_C][ROW_2];
+        Field.C3 = fields[COL_C][ROW_3];
+        Field.C4 = fields[COL_C][ROW_4];
+        Field.C5 = fields[COL_C][ROW_5];
+        Field.C6 = fields[COL_C][ROW_6];
+        Field.C7 = fields[COL_C][ROW_7];
+        Field.C8 = fields[COL_C][ROW_8];
+
+        Field.D1 = fields[COL_D][ROW_1];
+        Field.D2 = fields[COL_D][ROW_2];
+        Field.D3 = fields[COL_D][ROW_3];
+        Field.D4 = fields[COL_D][ROW_4];
+        Field.D5 = fields[COL_D][ROW_5];
+        Field.D6 = fields[COL_D][ROW_6];
+        Field.D7 = fields[COL_D][ROW_7];
+        Field.D8 = fields[COL_D][ROW_8];
+
+        Field.E1 = fields[COL_E][ROW_1];
+        Field.E2 = fields[COL_E][ROW_2];
+        Field.E3 = fields[COL_E][ROW_3];
+        Field.E4 = fields[COL_E][ROW_4];
+        Field.E5 = fields[COL_E][ROW_5];
+        Field.E6 = fields[COL_E][ROW_6];
+        Field.E7 = fields[COL_E][ROW_7];
+        Field.E8 = fields[COL_E][ROW_8];
+
+        Field.F1 = fields[COL_F][ROW_1];
+        Field.F2 = fields[COL_F][ROW_2];
+        Field.F3 = fields[COL_F][ROW_3];
+        Field.F4 = fields[COL_F][ROW_4];
+        Field.F5 = fields[COL_F][ROW_5];
+        Field.F6 = fields[COL_F][ROW_6];
+        Field.F7 = fields[COL_F][ROW_7];
+        Field.F8 = fields[COL_F][ROW_8];
+
+        Field.G1 = fields[COL_G][ROW_1];
+        Field.G2 = fields[COL_G][ROW_2];
+        Field.G3 = fields[COL_G][ROW_3];
+        Field.G4 = fields[COL_G][ROW_4];
+        Field.G5 = fields[COL_G][ROW_5];
+        Field.G6 = fields[COL_G][ROW_6];
+        Field.G7 = fields[COL_G][ROW_7];
+        Field.G8 = fields[COL_G][ROW_8];
+
+        Field.H1 = fields[COL_H][ROW_1];
+        Field.H2 = fields[COL_H][ROW_2];
+        Field.H3 = fields[COL_H][ROW_3];
+        Field.H4 = fields[COL_H][ROW_4];
+        Field.H5 = fields[COL_H][ROW_5];
+        Field.H6 = fields[COL_H][ROW_6];
+        Field.H7 = fields[COL_H][ROW_7];
+        Field.H8 = fields[COL_H][ROW_8];
+    }
+
     public void play(final Move move) {
         Field fromPos = move.getFrom();
         Field toPos = move.getTo();
-        Piece piece = move.getFrom().getPiece();
+        Piece piece = fromPos.getPiece();
         Piece capturedPiece = move.getCaptured();
         setPiece(toPos.getCol(), toPos.getRow(), piece);
         setPiece(fromPos.getCol(), fromPos.getRow(), null);
@@ -157,6 +237,10 @@ public class ChessBoard extends AbstractBoard {
         }
         if (capturedPiece != null) {
             capturedPieces.push(capturedPiece);
+            if (toPos != capturedPiece.getField()) {
+                // only for weird en-passent
+                capturedPiece.getField().removePiece();
+            }
             capturedPiece.capture();
         }
 
@@ -202,6 +286,10 @@ public class ChessBoard extends AbstractBoard {
                 }
             }
         }
+        sb.append("Captured: ");
+        capturedPieces.forEach(p -> sb.append(p).append("[").append(p.getIdx()).append("] "));
+        sb.append("\n");
+
 
         return  sb.toString();
     }

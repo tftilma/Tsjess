@@ -1,7 +1,9 @@
 package nl.tftilma.tsjess.board;
 
+import nl.tftilma.tsjess.move.Move;
 import org.junit.jupiter.api.Test;
 
+import static nl.tftilma.game.board.Field.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -28,4 +30,51 @@ class ChessBoardTest {
           -  -  -  -  -  -  - \s
         """, cb.toString());
     }
+
+    @Test
+    void testPlayGame1() {
+        ChessBoard cb = new ChessBoard();
+        cb.init();
+        System.out.println(cb);
+
+        cb.play(new Move(E2, E4));
+        System.out.println(cb);
+
+        cb.play(new Move(E7, E5));
+        System.out.println(cb);
+
+        cb.play(new Move(G1, F3));
+        System.out.println(cb);
+
+        cb.play(new Move(G8, F6));
+        System.out.println(cb);
+
+        cb.play(new Move(F3, E5));
+        System.out.println(cb);
+    }
+
+    @Test
+    void testPlayGame2() {
+        ChessBoard cb = new ChessBoard();
+        cb.init();
+        System.out.println(cb);
+
+        cb.play(new Move(E2, E4));
+        System.out.println(cb);
+
+        cb.play(new Move(D7, D5));
+        System.out.println(cb);
+
+        cb.play(new Move(E4, D5));
+        System.out.println(cb);
+
+        cb.play(new Move(E7, E5));
+        System.out.println(cb);
+
+        cb.play(new Move(D5, E6, cb.getField(E5).getPiece())); // d7xe6 e.p.
+        System.out.println(cb);
+    }
+
+
+
 }
