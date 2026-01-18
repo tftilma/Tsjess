@@ -13,6 +13,16 @@ public class BasicEngine implements Engine {
     }
 
     @Override
+    public double kingValue(ChessBoard board) {
+        return 99999.0d;
+    }
+
+    @Override
+    public double pawnValue(ChessBoard board, int pieceIdx) {
+        return 1.0d;
+    }
+
+    @Override
     public double knightValue(final ChessBoard board, int pieceIdx) {
         return 3.0d;
     }
@@ -40,5 +50,15 @@ public class BasicEngine implements Engine {
     @Override
     public double rooksConnectedValue(final ChessBoard board) {
         return 0.07d;
+    }
+
+    @Override
+    public double castledValue(ChessBoard board) {
+        return 0;
+    }
+
+    @Override
+    public double kingSavetyValue(ChessBoard board) {
+        return 0;
     }
 }

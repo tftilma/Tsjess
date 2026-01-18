@@ -20,7 +20,7 @@ public class EvaluateBoard implements Evaluation {
     }
 
     @Override
-    public double eval(final ChessBoard board) {
+    public double eval(final ChessBoard board) throws ChessException {
         double val = knightEval.eval(board)
                 + bishopEval.eval(board)
                 + rooksEval.eval(board)

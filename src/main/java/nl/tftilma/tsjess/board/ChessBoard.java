@@ -309,11 +309,18 @@ public class ChessBoard extends AbstractBoard {
         capturedPieces.forEach(p -> sb.append(p).append("[").append(p.getIdx()).append("] "));
         sb.append("\n");
 
-
         return  sb.toString();
     }
 
     public boolean isWhiteToMove() {
         return whiteToMove;
+    }
+
+    public boolean isMate() {
+        return false;
+    }
+
+    public boolean isStaleMate() {
+        return false;
     }
 }

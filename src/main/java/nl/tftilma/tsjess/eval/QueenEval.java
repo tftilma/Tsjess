@@ -22,7 +22,7 @@ public class QueenEval implements Evaluation {
         }
     }
 
-    double queenValue(ChessBoard board) {
+    double queenValue(final ChessBoard board) {
         return engine.queenValue(board, QQ.ordinal());
     }
 
