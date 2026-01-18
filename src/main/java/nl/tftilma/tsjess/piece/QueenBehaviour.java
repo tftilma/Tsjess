@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class QueenBehaviour extends AbstractBehaviour {
-    public QueenBehaviour(final Piece queen) {
+class QueenBehaviour extends AbstractBehaviour {
+    QueenBehaviour(final Piece queen) {
         super(queen);
     }
 
@@ -33,5 +33,4 @@ public class QueenBehaviour extends AbstractBehaviour {
         tryRightDown(list, true);
         return list;
     }
-
 }

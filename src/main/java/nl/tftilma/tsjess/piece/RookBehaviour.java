@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RookBehaviour extends AbstractBehaviour {
-    public RookBehaviour(Piece rook) {
+class RookBehaviour extends AbstractBehaviour {
+    RookBehaviour(final Piece rook) {
         super(rook);
     }
 

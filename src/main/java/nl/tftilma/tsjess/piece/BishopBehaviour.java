@@ -7,13 +7,14 @@ import nl.tftilma.tsjess.move.Move;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BishopBehaviour extends AbstractBehaviour {
-    public BishopBehaviour(final Piece bishop) {
+
+class BishopBehaviour extends AbstractBehaviour {
+    BishopBehaviour(final Piece bishop) {
         super(bishop);
     }
 
     @Override
-    List<Move> generate(Move prevMove) {
+    List<Move> generate(final Move prevMove) {
         List<Move> list = new ArrayList<>();
         final Field field = getChessPiece().getField();
         if (field == null) {
@@ -27,5 +28,4 @@ public class BishopBehaviour extends AbstractBehaviour {
 
         return list;
     }
-
 }

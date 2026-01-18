@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class KnightBehaviour extends AbstractBehaviour {
-    public KnightBehaviour(final Piece knight) {
+class KnightBehaviour extends AbstractBehaviour {
+    KnightBehaviour(final Piece knight) {
         super(knight);
     }
 

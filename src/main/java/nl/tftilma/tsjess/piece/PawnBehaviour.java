@@ -15,7 +15,7 @@ public class PawnBehaviour extends AbstractBehaviour {
     }
 
     @Override
-    public List<Move> generate(final Move prevMove) {
+    List<Move> generate(final Move prevMove) {
         List<Move> list = new ArrayList<>();
         final Field field = getChessPiece().getField();
         if (field == null) {

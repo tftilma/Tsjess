@@ -1,7 +1,6 @@
 package nl.tftilma.tsjess.board;
 
 import nl.tftilma.tsjess.move.Move;
-import nl.tftilma.tsjess.piece.QueenBehaviour;
 import org.junit.jupiter.api.Test;
 
 import static nl.tftilma.game.board.Field.*;
@@ -100,7 +99,8 @@ class ChessBoardTest {
         cb.play(new Move(F8, E7)); // 6...Bf8-e7
         System.out.println(cb);
 
-        cb.play(new Move(F7, G8, new QueenBehaviour(cb.getField(G8).getPiece()))); // 7.f7xg8(Q)
+        //cb.play(new Move(F7, G8, new QueenBehaviour(cb.getField(G8).getPiece()))); // 7.f7xg8(Q)
+        cb.play(new Move(F7, G8, "Q")); // 7.f7xg8(Q)
         System.out.println(cb);
 
         cb.play(new Move(H8, G8)); // 7...Rh8xg8
