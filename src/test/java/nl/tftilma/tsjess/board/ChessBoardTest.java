@@ -87,10 +87,10 @@ class ChessBoardTest {
         cb.play(new Move(C8, D7)); // 5...Bc8-d7
         System.out.println(cb);
 
-        cb.play(new Move(E1, G1)); // 6.0-0 TODO
+        cb.play(new Move(E1, G1)); // 6.0-0
         System.out.println(cb);
 
-        cb.play(new Move(E8, C8)); // 6...0-0-0 TODO
+        cb.play(new Move(E8, C8)); // 6...0-0-0
         System.out.println(cb);
 
         cb.play(new Move(E6, F7)); // 6.e6xf7
@@ -105,9 +105,5 @@ class ChessBoardTest {
 
         cb.play(new Move(H8, G8)); // 7...Rh8xg8
         System.out.println(cb);
-
     }
-
-
-
 }

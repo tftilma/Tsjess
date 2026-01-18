@@ -243,6 +243,25 @@ public class ChessBoard extends AbstractBoard {
             }
             capturedPiece.capture();
         }
+        // castling 0-0 and 0-0-0
+        if (piece instanceof King) {
+            //  we assume if the King made 2 col diffs it must be a castling
+            if (fromPos.getCol() - toPos.getCol() == 2) {
+                // 0-0-0
+                // set queen rook manually
+                ChessBoard board = piece.getBoard();
+                Piece rook = board.findPiece(piece.getColor(), QR.ordinal());
+                rook.place(board.getField(toPos.getCol()+1, toPos.getRow()));
+                setPiece(toPos.getCol()+1, toPos.getRow(), rook); // set new place for rook
+                setPiece(toPos.getCol()-2, toPos.getRow(), null); // old place is empty
+            } else if (fromPos.getCol() - toPos.getCol() == -2 ) {
+                // 0-0
+                // set king rook manually
+                Piece rook = piece.getBoard().findPiece(piece.getColor(), KR.ordinal());
+                setPiece(toPos.getCol()-1, toPos.getRow(), rook); // set new place for rook
+                setPiece(toPos.getCol()+1, toPos.getRow(), null); // old place is empty
+            }
+        }
 
         this.playedMoves.push(move);
         whiteToMove = !whiteToMove; // WHITE -> BLACK -> WHITE
