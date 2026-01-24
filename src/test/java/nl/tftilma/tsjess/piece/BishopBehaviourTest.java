@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static nl.tftilma.game.board.Field.*;
 import static nl.tftilma.tsjess.piece.PieceIndex.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,15 +24,15 @@ class BishopBehaviourTest {
         Piece bishop = board.findPiece(Color.BLACK, QB.ordinal());
         assertNotNull(bishop);
         assertInstanceOf(Bishop.class, bishop);
-        board.setPiece(COL_B, ROW_7, bishop); // BQB on B7
+        board.setPiece(B7, bishop); // BQB on B7
 
         Piece blackPawn = board.findPiece(Color.BLACK, AP.ordinal());
-        board.setPiece(COL_A, ROW_6, blackPawn); // BAP on a6
+        board.setPiece(A6, blackPawn); // BAP on a6
 
         Piece whitePawn = board.findPiece(Color.WHITE, EP.ordinal());
         assertNotNull(whitePawn);
         assertInstanceOf(Pawn.class, whitePawn);
-        board.setPiece(COL_E, ROW_4, whitePawn); // WEP on e4
+        board.setPiece(E4, whitePawn); // WEP on e4
 
 
         List<Move> moveList = bishop.generate(null);
