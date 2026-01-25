@@ -3,7 +3,7 @@ package nl.tftilma.game.board;
 public class Field {
     private final int col;
     private final int row;
-    private Piece piece = null;
+    private Piece piece;
 
     public static Field A1;
     public static Field A2;
@@ -81,6 +81,7 @@ public class Field {
     public Field(final int col, final int row) {
         this.col = col;
         this.row = row;
+        piece = null;
     }
 
     public void setPiece(final Piece piece) {

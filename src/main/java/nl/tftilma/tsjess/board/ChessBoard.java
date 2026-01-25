@@ -10,7 +10,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-import static nl.tftilma.game.board.Field.*;
+import static nl.tftilma.tsjess.board.Position.*;
 import static nl.tftilma.tsjess.piece.PieceIndex.*;
 
 
@@ -45,49 +45,34 @@ public class ChessBoard extends AbstractBoard {
         return prevMove;
     }
 
-
-
     public void init() {
         emptyBoard();
         placePiecesStandard();
     }
 
     private void placePiecesStandard() {
-        this.setPiece(A1, whitePieces[QR.ordinal()]); // set WQR on A1
-        this.setPiece(B1, whitePieces[QN.ordinal()]); // set WQN on B1
-        this.setPiece(C1, whitePieces[QB.ordinal()]); // set WQB on C1
-        this.setPiece(D1, whitePieces[QQ.ordinal()]); // set WQQ on D1
-        this.setPiece(E1, whitePieces[KK.ordinal()]); // set WKK on E1
-        this.setPiece(F1, whitePieces[KB.ordinal()]); // set WKB on F1
-        this.setPiece(G1, whitePieces[KN.ordinal()]); // set WKN on G1
-        this.setPiece(H1, whitePieces[KR.ordinal()]); // set WKR on H1
+        placePiecesStandard(0, 1, whitePieces);
+        placePiecesStandard(7, 6, blackPieces);
+    }
 
-        this.setPiece(A2, whitePieces[AP.ordinal()]); // set WQR on A1
-        this.setPiece(B2, whitePieces[BP.ordinal()]); // set WQN on B1
-        this.setPiece(C2, whitePieces[CP.ordinal()]); // set WQB on C1
-        this.setPiece(D2, whitePieces[DP.ordinal()]); // set WQQ on D1
-        this.setPiece(E2, whitePieces[EP.ordinal()]); // set WKK on E1
-        this.setPiece(F2, whitePieces[FP.ordinal()]); // set WKB on F1
-        this.setPiece(G2, whitePieces[GP.ordinal()]); // set WKN on G1
-        this.setPiece(H2, whitePieces[HP.ordinal()]); // set WKR on H1
+    private void placePiecesStandard(final int rowBack, final int rowPawn, final Piece[] pieces) {
+        setPiece(COL_A, rowBack, pieces[QR.ordinal()]); // set WQR (or BQR) on A1 or A8
+        setPiece(COL_B, rowBack, pieces[QN.ordinal()]); // set WQN on B1
+        setPiece(COL_C, rowBack, pieces[QB.ordinal()]); // set WQB on C1
+        setPiece(COL_D, rowBack, pieces[QQ.ordinal()]); // set WQQ on D1
+        setPiece(COL_E, rowBack, pieces[KK.ordinal()]); // set WKK on E1
+        setPiece(COL_F, rowBack, pieces[KB.ordinal()]); // set WKB on F1
+        setPiece(COL_G, rowBack, pieces[KN.ordinal()]); // set WKN on G1
+        setPiece(COL_H, rowBack, pieces[KR.ordinal()]); // set WKR on H1
 
-        this.setPiece(A8, blackPieces[QR.ordinal()]); // set BQR on A8
-        this.setPiece(B8, blackPieces[QN.ordinal()]); // set BQN on B8
-        this.setPiece(C8, blackPieces[QB.ordinal()]); // set BQB on C8
-        this.setPiece(D8, blackPieces[QQ.ordinal()]); // set BQQ on D8
-        this.setPiece(E8, blackPieces[KK.ordinal()]); // set BKK on E8
-        this.setPiece(F8, blackPieces[KB.ordinal()]); // set BKB on F8
-        this.setPiece(G8, blackPieces[KN.ordinal()]); // set BKN on G8
-        this.setPiece(H8, blackPieces[KR.ordinal()]); // set BKR on H8
-
-        this.setPiece(A7, blackPieces[AP.ordinal()]); // set BQR on A7
-        this.setPiece(B7, blackPieces[BP.ordinal()]); // set BQN on B7
-        this.setPiece(C7, blackPieces[CP.ordinal()]); // set BQB on C7
-        this.setPiece(D7, blackPieces[DP.ordinal()]); // set BQQ on D7
-        this.setPiece(E7, blackPieces[EP.ordinal()]); // set BKK on E7
-        this.setPiece(F7, blackPieces[FP.ordinal()]); // set BKB on F7
-        this.setPiece(G7, blackPieces[GP.ordinal()]); // set BKN on G7
-        this.setPiece(H7, blackPieces[HP.ordinal()]); // set BKR on H7
+        setPiece(COL_A, rowPawn, pieces[AP.ordinal()]); // set WQR on A1
+        setPiece(COL_B, rowPawn, pieces[BP.ordinal()]); // set WQN on B1
+        setPiece(COL_C, rowPawn, pieces[CP.ordinal()]); // set WQB on C1
+        setPiece(COL_D, rowPawn, pieces[DP.ordinal()]); // set WQQ on D1
+        setPiece(COL_E, rowPawn, pieces[EP.ordinal()]); // set WKK on E1
+        setPiece(COL_F, rowPawn, pieces[FP.ordinal()]); // set WKB on F1
+        setPiece(COL_G, rowPawn, pieces[GP.ordinal()]); // set WKN on G1
+        setPiece(COL_H, rowPawn, pieces[HP.ordinal()]); // set WKR on H1
     }
 
     public void emptyBoard() {
@@ -237,12 +222,31 @@ public class ChessBoard extends AbstractBoard {
 
         Field fromPos = move.getFrom();
         Field toPos = move.getTo();
-        Piece piece = move.getFrom().getPiece();
+        Piece piece = fromPos.getPiece();
         Piece capturedPiece = move.getCaptured();
-        setPiece(fromPos.getCol(), fromPos.getRow(), piece);
-        setPiece(toPos.getCol(), toPos.getRow(), move.getCaptured());
+
+        if (piece instanceof King) {
+            if (toPos.getCol() - fromPos.getCol()  == 2) {
+                // 0-0
+                initPiece(COL_H, fromPos.getRow(),
+                        piece.isWhite() ? whitePieces[KR.ordinal()] : blackPieces[KR.ordinal()]);
+                initPiece(fromPos.getCol(), fromPos.getRow(), piece); // king must be reset to init
+            } else if (toPos.getCol() - fromPos.getCol()  == -2) {
+                // 0-0-0
+                initPiece(COL_A, fromPos.getRow(),
+                        piece.isWhite() ? whitePieces[QR.ordinal()] : blackPieces[QR.ordinal()]);
+                initPiece(fromPos.getCol(), fromPos.getRow(), piece); // king must be reset to init
+            } else {
+                setPiece(fromPos.getCol(), fromPos.getRow(), piece);
+                setPiece(toPos.getCol(), toPos.getRow(), move.getCaptured());
+            }
+        } else {
+            setPiece(fromPos.getCol(), fromPos.getRow(), piece);
+            setPiece(toPos.getCol(), toPos.getRow(), move.getCaptured());
+        }
 
         if (move.getPromotionBehaviour() != null) {
+            assert piece instanceof Pawn;
             Pawn pawn = (Pawn) piece;
             pawn.setBehaviour(new PawnBehaviour(pawn));
         }
@@ -251,9 +255,8 @@ public class ChessBoard extends AbstractBoard {
             assert foundCapturedPiece == capturedPiece;
             capturedPiece.place(fromPos);
         }
+
     }
-
-
 
     @Override
     public String toString() {
