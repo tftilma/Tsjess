@@ -21,6 +21,14 @@ public abstract class AbstractBehaviour {
         return chessPiece;
     }
 
+    protected int getCol() {
+        return chessPiece.getField().getCol();
+    }
+
+    protected int getRow() {
+        return chessPiece.getField().getRow();
+    }
+
     protected void tryRight(List<Move> list, boolean many) {
         tryDelta(list, many, (b, f) -> {
             Field toField;

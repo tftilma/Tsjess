@@ -103,9 +103,7 @@ class KingBehaviour extends AbstractBehaviour {
     }
 
     private boolean isCheck() {
-        // is our king in check right now?
-        // TODO
-        return false;
+        return isCheck(getCol(), getRow());
     }
 
     private boolean isCheck(final int col, final int row) {

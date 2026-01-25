@@ -204,6 +204,14 @@ public class ChessBoard extends AbstractBoard {
             capturedPiece.capture();
         }
         // castling 0-0 and 0-0-0
+        playCastling(piece, fromPos, toPos);
+
+        this.playedMoves.push(move);
+        whiteToMove = !whiteToMove; // WHITE -> BLACK -> WHITE
+        prevMove = move;
+    }
+
+    private void playCastling(Piece piece, Field fromPos, Field toPos) {
         if (piece instanceof King) {
             //  we assume if the King made 2 col diffs it must be a castling
             if (fromPos.getCol() - toPos.getCol() == 2) {
@@ -222,10 +230,6 @@ public class ChessBoard extends AbstractBoard {
                 setPiece(toPos.getCol()+1, toPos.getRow(), null); // old place is empty
             }
         }
-
-        this.playedMoves.push(move);
-        whiteToMove = !whiteToMove; // WHITE -> BLACK -> WHITE
-        prevMove = move;
     }
 
     public void undo() {
