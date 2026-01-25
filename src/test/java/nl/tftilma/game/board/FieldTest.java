@@ -1,8 +1,8 @@
 package nl.tftilma.game.board;
 
 import nl.tftilma.tsjess.board.Color;
-import nl.tftilma.tsjess.piece.Behaviour;
-import nl.tftilma.tsjess.piece.ChessPiece;
+import nl.tftilma.tsjess.piece.AbstractBehaviour;
+import nl.tftilma.tsjess.piece.AbstractChessPiece;
 import nl.tftilma.tsjess.piece.PieceIndex;
 import org.junit.jupiter.api.Test;
 
@@ -21,10 +21,15 @@ class FieldTest {
     @Test
     void testFieldWithPiece(){
         Field field = new Field(2, 7);
-        field.setPiece(new ChessPiece(Color.WHITE, PieceIndex.KN, null) {
+        field.setPiece(new AbstractChessPiece(Color.WHITE, PieceIndex.KN, null) {
             @Override
-            protected Behaviour getBehaviour() {
+            protected AbstractBehaviour getBehaviour() {
                 return null;
+            }
+
+            @Override
+            public String abbreviation() {
+                return "V";
             }
         });
         assertNotNull(field);

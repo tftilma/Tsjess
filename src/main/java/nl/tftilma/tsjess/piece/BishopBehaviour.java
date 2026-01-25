@@ -1,17 +1,20 @@
 package nl.tftilma.tsjess.piece;
 
 import nl.tftilma.game.board.Field;
+import nl.tftilma.game.board.Piece;
 import nl.tftilma.tsjess.move.Move;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class BishopBehaviour extends Behaviour {
-    BishopBehaviour(final ChessPiece bishop) {
+
+class BishopBehaviour extends AbstractBehaviour {
+    BishopBehaviour(final Piece bishop) {
         super(bishop);
     }
 
-    List<Move> generate(Move prevMove) {
+    @Override
+    List<Move> generate(final Move prevMove) {
         List<Move> list = new ArrayList<>();
         final Field field = getChessPiece().getField();
         if (field == null) {
@@ -25,5 +28,4 @@ class BishopBehaviour extends Behaviour {
 
         return list;
     }
-
 }

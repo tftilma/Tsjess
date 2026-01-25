@@ -1,17 +1,19 @@
 package nl.tftilma.tsjess.piece;
 
 import nl.tftilma.game.board.Field;
+import nl.tftilma.game.board.Piece;
 import nl.tftilma.tsjess.move.Move;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-class KnightBehaviour extends Behaviour {
-    KnightBehaviour(final ChessPiece knight) {
+class KnightBehaviour extends AbstractBehaviour {
+    KnightBehaviour(final Piece knight) {
         super(knight);
     }
 
+    @Override
     List<Move> generate(final Move prevMove) {
         List<Move> list = new ArrayList<>();
         final Field field = getChessPiece().getField();

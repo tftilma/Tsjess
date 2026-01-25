@@ -8,14 +8,14 @@ import nl.tftilma.tsjess.board.ChessBoard;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class PawnBehaviour extends Behaviour {
+public class PawnBehaviour extends AbstractBehaviour {
 
     public PawnBehaviour(final Pawn pawn) {
         super(pawn);
     }
 
-    public List<Move> generate(final Move prevMove) {
+    @Override
+    List<Move> generate(final Move prevMove) {
         List<Move> list = new ArrayList<>();
         final Field field = getChessPiece().getField();
         if (field == null) {
@@ -86,9 +86,6 @@ public class PawnBehaviour extends Behaviour {
         return getChessPiece().getField().getRow() == valueForColor(1, 6);
     }
 
-    private int valueForColor(int forWhite, int forBlack) {
-        return getChessPiece().isWhite() ? forWhite : forBlack;
-    }
 
     private void tryDoubleForward(List<Move> list) {
         if (isOnInitialPosition()) {
@@ -130,7 +127,7 @@ public class PawnBehaviour extends Behaviour {
     private void tryEnPassent(List<Move> list, Move prevMove) {
         if (prevMove != null) {
             final Field fromField = getChessPiece().getField();
-            if (isEither (prevMove.getTo().getCol(), fromField.getCol()+1, fromField.getCol()-1)) {
+            if (!isEither (prevMove.getTo().getCol(), fromField.getCol()+1, fromField.getCol()-1)) {
                 return;
             }
             if (fromField.getRow() != valueForColor(4, 3)) {
