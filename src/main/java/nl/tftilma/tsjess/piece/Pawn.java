@@ -3,21 +3,25 @@ package nl.tftilma.tsjess.piece;
 import nl.tftilma.tsjess.board.ChessBoard;
 import nl.tftilma.tsjess.board.Color;
 
-
-public class Pawn extends ChessPiece {
-    private final Behaviour behavior;
-
-    public Pawn(final Color color, final PieceIndex idx, final ChessBoard board) {
-        super(color, idx, board);
-        behavior = new PawnBehaviour(this);
-    }
+public class Pawn extends AbstractChessPiece {
+    private AbstractBehaviour behaviour;
 
     public Pawn(final Color color, final int idx, final ChessBoard board) {
         super(color, idx, board);
-        behavior = new PawnBehaviour(this);
+        behaviour = new PawnBehaviour(this);
     }
 
-    public Behaviour getBehaviour() {
-        return behavior;
+    @Override
+    protected AbstractBehaviour getBehaviour() {
+        return behaviour;
+    }
+
+    public void setBehaviour(final AbstractBehaviour behaviour) {
+        this.behaviour = behaviour;
+    }
+
+    @Override
+    public String abbreviation() {
+        return "x";
     }
 }
