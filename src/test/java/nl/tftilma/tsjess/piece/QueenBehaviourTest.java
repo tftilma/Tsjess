@@ -18,7 +18,6 @@ class QueenBehaviourTest {
     @Test
     void testGenerate() {
         ChessBoard board = new ChessBoard();
-        board.emptyBoard();
 
         Piece queen = board.findPiece(Color.WHITE, QQ.ordinal());
         assertNotNull(queen);

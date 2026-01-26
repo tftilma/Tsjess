@@ -10,6 +10,7 @@ public interface Engine {
     double pawnValue(ChessBoard board, int pieceIdx);
     double knightValue(ChessBoard board, int pieceIdx);
     double bishopValue(ChessBoard board, int pieceIdx);
+    double rookValue(ChessBoard board, int pieceIdx);
     double queenValue(ChessBoard board, int pieceIdx);
 
     double knightPairValue(ChessBoard board);
@@ -17,4 +18,5 @@ public interface Engine {
     double rooksConnectedValue(ChessBoard board);
     double castledValue(ChessBoard board);
     double kingSavetyValue(ChessBoard board);
+
 }

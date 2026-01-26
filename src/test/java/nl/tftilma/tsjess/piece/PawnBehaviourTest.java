@@ -20,7 +20,6 @@ class PawnBehaviourTest {
     @BeforeEach
     void setup() {
         board = new ChessBoard();
-        board.emptyBoard();
     }
 
     @Test

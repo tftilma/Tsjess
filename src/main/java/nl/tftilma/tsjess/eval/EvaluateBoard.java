@@ -7,7 +7,7 @@ public class EvaluateBoard implements Evaluation {
     private final PawnEval pawnEval;
     private final KnightEval knightEval;
     private final BishopEval bishopEval;
-    private final RooksEval rooksEval;
+    private final RookEval rooksEval;
     private final QueenEval queenEval;
     private final KingEval kingEval;
 
@@ -15,7 +15,7 @@ public class EvaluateBoard implements Evaluation {
         pawnEval = new PawnEval(engine);
         knightEval = new KnightEval(engine);
         bishopEval = new BishopEval(engine);
-        rooksEval = new RooksEval(engine);
+        rooksEval = new RookEval(engine);
         queenEval = new QueenEval(engine);
         kingEval = new KingEval(engine);
     }
