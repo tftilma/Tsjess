@@ -27,6 +27,7 @@ public class ChessBoard extends AbstractBoard {
 
     public ChessBoard() {
         super(CHESS_NUM_COLS, CHESS_NUM_ROWS);
+        emptyBoard();
     }
 
     public boolean isWhiteToMove() {
@@ -46,7 +47,6 @@ public class ChessBoard extends AbstractBoard {
     }
 
     public void init() {
-        emptyBoard();
         placePiecesStandard();
     }
 
@@ -75,7 +75,7 @@ public class ChessBoard extends AbstractBoard {
         setPiece(COL_H, rowPawn, pieces[HP.ordinal()]); // set WKR on H1
     }
 
-    public void emptyBoard() {
+    private void emptyBoard() {
         whiteToMove = true;
         capturedPieces = new LinkedList<>();
         playedMoves = new LinkedList<>();
@@ -146,7 +146,7 @@ public class ChessBoard extends AbstractBoard {
         } else if (color == Color.BLACK){
             return blackPieces[idx];
         } else {
-            return null;
+            throw new IllegalStateException();
         }
     }
 
@@ -160,6 +160,9 @@ public class ChessBoard extends AbstractBoard {
             piece = findPiece(Color.WHITE, idx);
         } else {
             piece = findPiece(Color.BLACK, idx);
+        }
+        if (piece == null) {
+            return false;
         }
         return piece.isCaptured();
     }

@@ -33,8 +33,13 @@ public class BasicEngine implements Engine {
     }
 
     @Override
+    public double rookValue(ChessBoard board, int pieceIdx) {
+        return 5.0d;
+    }
+
+    @Override
     public double queenValue(final ChessBoard board, final int pieceIdx) {
-        return 9.0;
+        return 9.0d;
     }
 
     @Override
@@ -54,7 +59,7 @@ public class BasicEngine implements Engine {
 
     @Override
     public double castledValue(ChessBoard board) {
-        return 0;
+        return 0.8;
     }
 
     @Override

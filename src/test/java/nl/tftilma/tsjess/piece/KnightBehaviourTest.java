@@ -15,7 +15,6 @@ class KnightBehaviourTest {
     @Test
     void testTryKnightPlaced() {
         ChessBoard board = new ChessBoard();
-        board.emptyBoard();
 
         Piece knight = board.findPiece(Color.WHITE, KN.ordinal());
         assertNotNull(knight);

@@ -19,7 +19,6 @@ class BishopBehaviourTest {
     @Test
     void testGenerate() {
         ChessBoard board = new ChessBoard();
-        board.emptyBoard();
 
         Piece bishop = board.findPiece(Color.BLACK, QB.ordinal());
         assertNotNull(bishop);

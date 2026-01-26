@@ -27,7 +27,6 @@ class RookBehaviourTest {
     void testTryRookPlaced() {
         ChessBoard board = new ChessBoard();
         Rook rook = new Rook(Color.WHITE, PieceIndex.KR, board);
-        board.emptyBoard();
         board.setPiece(3, 1, rook);
 
         Piece knight = board.findPiece(Color.BLACK, KN.ordinal());

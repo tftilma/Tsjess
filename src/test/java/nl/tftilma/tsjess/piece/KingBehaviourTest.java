@@ -16,7 +16,6 @@ class KingBehaviourTest {
     @Test
     void testGenerate() {
         ChessBoard board = new ChessBoard();
-        board.emptyBoard();
 
         King king = (King) board.findPiece(Color.WHITE, KK.ordinal());
         assertNotNull(king);
