@@ -8,13 +8,21 @@ import nl.tftilma.tsjess.board.Color;
 
 
 public interface Piece {
+    boolean isInit();
+
     void init(final Field field);
 
     void place(final Field field);
 
+    Field getField();
+
     void capture();
 
     boolean isCaptured();
+
+    ChessBoard getBoard();
+
+    boolean isWhite();
 
     Color getColor();
 
@@ -22,13 +30,5 @@ public interface Piece {
 
     List<Move> generate(final Move prevMove);
 
-    ChessBoard getBoard();
-
-    Field getField();
-
     String abbreviation();
-
-    boolean isWhite();
-
-    boolean isInit();
 }

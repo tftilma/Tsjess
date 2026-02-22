@@ -3,6 +3,7 @@ package nl.tftilma.tsjess.piece;
 import nl.tftilma.tsjess.board.ChessBoard;
 import nl.tftilma.tsjess.board.Color;
 
+
 public class Rook extends AbstractChessPiece {
     private final AbstractBehaviour behaviour;
 

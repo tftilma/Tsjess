@@ -8,6 +8,7 @@ import nl.tftilma.tsjess.board.ChessBoard;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class PawnBehaviour extends AbstractBehaviour {
 
     public PawnBehaviour(final Pawn pawn) {
@@ -29,7 +30,6 @@ public class PawnBehaviour extends AbstractBehaviour {
         tryEnPassent(list, prevMove);
         return list;
     }
-
 
     private void tryCapture(List<Move> list) {
         final Field fromField = getChessPiece().getField();
@@ -127,7 +127,8 @@ public class PawnBehaviour extends AbstractBehaviour {
     private void tryEnPassent(List<Move> list, Move prevMove) {
         if (prevMove != null) {
             final Field fromField = getChessPiece().getField();
-            if (!isEither (prevMove.getTo().getCol(), fromField.getCol()+1, fromField.getCol()-1)) {
+            if (!isEither(prevMove.getTo().getCol(), fromField.getCol()+1, fromField.getCol()-1)) {
+                // the to-col must be next to our pawn
                 return;
             }
             if (fromField.getRow() != valueForColor(4, 3)) {
@@ -150,6 +151,7 @@ public class PawnBehaviour extends AbstractBehaviour {
     private boolean isDoublePawnMove(Move prevMove) {
         return  prevMove.getFrom().getRow() == valueForColor(6, 1) &&
                 prevMove.getTo().getRow() == valueForColor(4, 3) &&
-                prevMove.getFrom().getPiece() instanceof Pawn;
+                prevMove.getFrom().getPiece() instanceof Pawn pawn && // must be pawn
+                pawn.getBehaviour() instanceof PawnBehaviour; // not promoted
     }
 }

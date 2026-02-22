@@ -46,35 +46,6 @@ public class ChessBoard extends AbstractBoard {
         return prevMove;
     }
 
-    public void init() {
-        placePiecesStandard();
-    }
-
-    private void placePiecesStandard() {
-        placePiecesStandard(0, 1, whitePieces);
-        placePiecesStandard(7, 6, blackPieces);
-    }
-
-    private void placePiecesStandard(final int rowBack, final int rowPawn, final Piece[] pieces) {
-        setPiece(COL_A, rowBack, pieces[QR.ordinal()]); // set WQR (or BQR) on A1 or A8
-        setPiece(COL_B, rowBack, pieces[QN.ordinal()]); // set WQN on B1
-        setPiece(COL_C, rowBack, pieces[QB.ordinal()]); // set WQB on C1
-        setPiece(COL_D, rowBack, pieces[QQ.ordinal()]); // set WQQ on D1
-        setPiece(COL_E, rowBack, pieces[KK.ordinal()]); // set WKK on E1
-        setPiece(COL_F, rowBack, pieces[KB.ordinal()]); // set WKB on F1
-        setPiece(COL_G, rowBack, pieces[KN.ordinal()]); // set WKN on G1
-        setPiece(COL_H, rowBack, pieces[KR.ordinal()]); // set WKR on H1
-
-        setPiece(COL_A, rowPawn, pieces[AP.ordinal()]); // set WQR on A1
-        setPiece(COL_B, rowPawn, pieces[BP.ordinal()]); // set WQN on B1
-        setPiece(COL_C, rowPawn, pieces[CP.ordinal()]); // set WQB on C1
-        setPiece(COL_D, rowPawn, pieces[DP.ordinal()]); // set WQQ on D1
-        setPiece(COL_E, rowPawn, pieces[EP.ordinal()]); // set WKK on E1
-        setPiece(COL_F, rowPawn, pieces[FP.ordinal()]); // set WKB on F1
-        setPiece(COL_G, rowPawn, pieces[GP.ordinal()]); // set WKN on G1
-        setPiece(COL_H, rowPawn, pieces[HP.ordinal()]); // set WKR on H1
-    }
-
     private void emptyBoard() {
         whiteToMove = true;
         capturedPieces = new LinkedList<>();
@@ -106,29 +77,48 @@ public class ChessBoard extends AbstractBoard {
         }
     }
 
+    public void init() {
+        placePiecesStandard();
+    }
+
+    private void placePiecesStandard() {
+        placePiecesStandard(0, 1, whitePieces);
+        placePiecesStandard(7, 6, blackPieces);
+    }
+
+    private void placePiecesStandard(final int rowBack, final int rowPawn, final Piece[] pieces) {
+        setPiece(COL_A, rowBack, pieces[QR.ordinal()]); // set WQR (or BQR) on A1 or A8
+        setPiece(COL_B, rowBack, pieces[QN.ordinal()]); // set WQN on B1
+        setPiece(COL_C, rowBack, pieces[QB.ordinal()]); // set WQB on C1
+        setPiece(COL_D, rowBack, pieces[QQ.ordinal()]); // set WQQ on D1
+        setPiece(COL_E, rowBack, pieces[KK.ordinal()]); // set WKK on E1
+        setPiece(COL_F, rowBack, pieces[KB.ordinal()]); // set WKB on F1
+        setPiece(COL_G, rowBack, pieces[KN.ordinal()]); // set WKN on G1
+        setPiece(COL_H, rowBack, pieces[KR.ordinal()]); // set WKR on H1
+
+        setPiece(COL_A, rowPawn, pieces[AP.ordinal()]); // set WQR on A1
+        setPiece(COL_B, rowPawn, pieces[BP.ordinal()]); // set WQN on B1
+        setPiece(COL_C, rowPawn, pieces[CP.ordinal()]); // set WQB on C1
+        setPiece(COL_D, rowPawn, pieces[DP.ordinal()]); // set WQQ on D1
+        setPiece(COL_E, rowPawn, pieces[EP.ordinal()]); // set WKK on E1
+        setPiece(COL_F, rowPawn, pieces[FP.ordinal()]); // set WKB on F1
+        setPiece(COL_G, rowPawn, pieces[GP.ordinal()]); // set WKN on G1
+        setPiece(COL_H, rowPawn, pieces[HP.ordinal()]); // set WKR on H1
+    }
+
     public void setPiece(final Field field, final Piece piece) {
         setPiece(field.getCol(), field.getRow(), piece, false);
-    }
-
-    public void setPiece(final int col, final int row, final Piece piece) {
-        setPiece(col, row, piece, false);
-    }
-
-    public Piece getPiece(final Color color, final PieceIndex idx) {
-        return color == Color.WHITE ?
-            whitePieces[idx.ordinal()] :
-            blackPieces[idx.ordinal()];
-    }
-
-    public List<Move> generate(final Color color, final PieceIndex idx) {
-        return getPiece(color, idx).generate(prevMove);
     }
 
     public void initPiece(final int col, final int row, final Piece piece) {
         setPiece(col, row, piece, true);
     }
 
-    public void setPiece(final int col, final int row, final Piece piece, boolean init) {
+    public void setPiece(final int col, final int row, final Piece piece) {
+        setPiece(col, row, piece, false);
+    }
+
+    private void setPiece(final int col, final int row, final Piece piece, boolean init) {
         Field field = this.getField(col, row);
         field.setPiece(piece);
         if (piece != null) {
@@ -140,6 +130,12 @@ public class ChessBoard extends AbstractBoard {
         }
     }
 
+    public Piece getPiece(final Color color, final PieceIndex idx) {
+        return color == Color.WHITE ?
+                whitePieces[idx.ordinal()] :
+                blackPieces[idx.ordinal()];
+    }
+
     public Piece findPiece(final Color color, final int idx) {
         if (color == Color.WHITE) {
             return whitePieces[idx];
@@ -148,6 +144,10 @@ public class ChessBoard extends AbstractBoard {
         } else {
             throw new IllegalStateException();
         }
+    }
+
+    public List<Move> generate(final Color color, final PieceIndex idx) {
+        return getPiece(color, idx).generate(prevMove);
     }
 
     public boolean exists(final PieceIndex idx) {

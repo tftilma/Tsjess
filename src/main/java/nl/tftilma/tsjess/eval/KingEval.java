@@ -3,6 +3,8 @@ package nl.tftilma.tsjess.eval;
 import nl.tftilma.tsjess.board.ChessBoard;
 import nl.tftilma.tsjess.engine.Engine;
 
+import static nl.tftilma.tsjess.piece.PieceIndex.KK;
+
 public class KingEval implements Evaluation {
     private final Engine engine;
 
@@ -12,6 +14,12 @@ public class KingEval implements Evaluation {
 
     @Override
     public double eval(final ChessBoard board) throws ChessException {
+        double value = 0.0;
+        boolean kingExists = board.exists(KK);
+        if (kingExists) {
+            // ehm always ?
+            value += kingValue(board);
+        }
         if (board.isMate()) {
             throw new MateException();
         }
@@ -19,9 +27,8 @@ public class KingEval implements Evaluation {
             throw new StaleMateException();
         }
 
-        double value = 0.0;
         value += castledValue(board);
-        value += kingSavityValue(board);
+        value += kingSavetyValue(board);
         return value;
     }
 
@@ -29,7 +36,11 @@ public class KingEval implements Evaluation {
         return engine.castledValue(board);
     }
 
-    double kingSavityValue(final ChessBoard board) {
+    double kingSavetyValue(final ChessBoard board) {
         return engine.kingSavetyValue(board);
+    }
+
+    private double kingValue(final ChessBoard board) {
+        return engine.kingValue(board);
     }
 }

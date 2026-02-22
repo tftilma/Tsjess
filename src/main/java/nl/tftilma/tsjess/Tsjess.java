@@ -4,7 +4,7 @@ import nl.tftilma.game.AbstractGame;
 import nl.tftilma.game.board.AbstractBoard;
 import nl.tftilma.tsjess.board.ChessBoard;
 import nl.tftilma.tsjess.engine.Player;
-import nl.tftilma.tsjess.move.Move;
+
 
 public class Tsjess extends AbstractGame  {
     private final ChessBoard board = new ChessBoard();
@@ -23,6 +23,12 @@ public class Tsjess extends AbstractGame  {
 
     public void run() {
         System.out.println(board);
+        if (whitePlayer.isBot()) {
+            System.out.println("white is a bot");
+        }
+        if (blackPlayer.isBot()) {
+            System.out.println("black is a bot");
+        }
         //Move move = whitePlayer.think(board);
         //playMove(move);
 
